@@ -1,0 +1,534 @@
+﻿<Window x:Class="TabControl.TabControl2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="TabControl2" Height="700" Width="965">
+    <Window.Resources>
+        <Style x:Key="LineButtonStyle" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border Name="ButtonBorder" Margin="1"
+                          BorderBrush="Black" 
+                          Background="Gold" 
+                          CornerRadius="1" 
+                          BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Stretch"
+                                              
+                                       VerticalAlignment="Stretch"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="ButtonBorder" Property="Background" 
+                                Value="Goldenrod" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="ButtonBorder" Property="Background" 
+                                Value="Goldenrod" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="DarkGray"/>
+                                <Setter TargetName="ButtonBorder" Property="Opacity" 
+                                Value="0.4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Path x:Key="TabMenuButtonPath"
+            Margin="2"
+            Data="M91.4 120.4h50.2c15.1 0 25.1 10 25.1 25.1v50.2c0 12.6-10 25.1-25.1 25.1H91.4c-15.1 0-25.1-10-25.1-25.1v-50.2c0-15.1 10-25.1 25.1-25.1zM282.2 120.4H935c15.1 0 25.1 10 25.1 25.1v50.2c0 12.6-10 25.1-25.1 25.1H282.2c-15.1 0-25.1-10-25.1-25.1v-50.2c0-15.1 10.1-25.1 25.1-25.1zM91.4 805.8h50.2c15.1 0 25.1 10 25.1 25.1v50.2c0 12.6-10 25.1-25.1 25.1H91.4c-15.1 0-25.1-10-25.1-25.1v-50.2c0-12.5 10-25.1 25.1-25.1zM282.2 805.8H935c15.1 0 25.1 10 25.1 25.1v50.2c0 12.6-10 25.1-25.1 25.1H282.2c-15.1 0-25.1-10-25.1-25.1v-50.2c0-12.5 10.1-25.1 25.1-25.1zM91.4 461.8h50.2c15.1 0 25.1 10 25.1 25.1v50.2c0 12.6-10 25.1-25.1 25.1H91.4c-15.1 0-25.1-10-25.1-25.1v-50.2c0-12.5 10-25.1 25.1-25.1zM282.2 461.8H935c15.1 0 25.1 10 25.1 25.1v50.2c0 12.6-10 25.1-25.1 25.1H282.2c-15.1 0-25.1-10-25.1-25.1v-50.2c0-12.5 10.1-25.1 25.1-25.1z"
+            Fill="Green"
+            Stretch="Fill"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+        
+        <Style x:Key="TabMenuButtonStyle" TargetType="{x:Type MenuItem}">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <Border Name="ButtonBorder" 
+                                Margin="1"  
+                                CornerRadius="1" 
+                                BorderThickness="1">
+                            <Grid>
+                                <ContentPresenter ContentSource="Header" 
+                                                  HorizontalAlignment="Stretch"
+                                                  VerticalAlignment="Stretch"
+                                                  Content="{StaticResource TabMenuButtonPath}">
+                                </ContentPresenter>
+                                <Popup Name="Popup"
+                                       Placement="Bottom"
+                                       IsOpen="{TemplateBinding IsSubmenuOpen}"
+                                       AllowsTransparency="True" 
+                                       Focusable="False"
+                                       PopupAnimation="Fade">
+                                    <!-- 
+                              Since we override the ControlTemplate, we're also responsible
+                              for drawing stuff like the shadow around the popup-menu.
+                              
+                              Here, I'll use a Chrome that's provided in the Aero assembly. 
+                              Note that, in order to use this (that is, the namespace defined
+                              at the very top of this window), a reference to 
+                              PresentationFramework.Aero is required.-->
+                                    <Border Name="SubmenuBorder"
+                                            Margin="1"
+                                            Background="LightGray"
+                                            SnapsToDevicePixels="True"
+                                            CornerRadius="1" 
+                                            BorderThickness="1">
+                                        <StackPanel IsItemsHost="True" 
+                                                   KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="ButtonBorder" Property="Background" 
+                                Value="Beige"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="TabMenuItem" TargetType="{x:Type MenuItem}">
+            <!-- This will help us bind to the Header of a TabItem -->
+            <Setter Property="Header" Value="{Binding Path=Header}" />
+            <!-- 
+            In order for MenuItems to support the IsEnabled state of a TabItem,
+            we simply bind the IsEnabled property of the MenuItem to that of the
+            TabItem.
+            This way, a disabled TabItem will not be selectable via the Menu.
+         -->
+            <Setter Property="IsEnabled" Value="{Binding Path=IsEnabled}" />
+            <!-- 
+            By making the MenuItems checkable AND binding the IsChecked
+            property to the IsSelected property of the TabItems, we'll 
+            efficiently allow to pick the selected TabItem from the Menu
+            with a simple two-way binding.
+         -->
+            <Setter Property="IsCheckable" Value="{Binding Path=IsEnabled}" />
+            <Setter Property="IsChecked" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+            <Setter Property="Foreground" Value="Black"/>
+            <Style.Triggers>
+                <Trigger Property="IsHighlighted" Value="True">
+                    <Setter Property="Foreground"
+                       Value="Bisque"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" 
+                       Value="Black"/>
+                    <Setter Property="Background"
+                                Value="Gainsboro"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="TabItemCloseButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="SnapsToDevicePixels" Value="false"/>
+            <Setter Property="Height" Value="16"/>
+            <Setter Property="Width" Value="16"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="ButtonBorder"
+                                CornerRadius="3">
+                            <Grid>
+                                <!-- The Path below will render the button's X. -->
+                                <Path x:Name="ButtonPath" 
+                                      Margin="4"
+                                      Data="M764.928 819.2c29.696 0 54.272-24.576 54.272-54.272 0-15.36-6.144-28.672-16.384-37.888l-215.04-215.04 214.016-214.016c10.24-10.24 16.384-23.552 16.384-37.888 0-29.696-24.576-54.272-54.272-54.272-15.36 0-28.672 6.144-37.888 16.384L512 436.224l-215.04-215.04c-10.24-10.24-23.552-16.384-37.888-16.384-29.696 0-54.272 24.576-54.272 54.272 0 15.36 6.144 28.672 16.384 37.888l215.04 215.04L222.208 724.992c-10.24 10.24-16.384 23.552-16.384 37.888 0 29.696 24.576 54.272 54.272 54.272 15.36 0 28.672-6.144 37.888-16.384L512 587.776l215.04 215.04C736.256 813.056 749.568 819.2 764.928 819.2z"                                   
+                                      Fill="{TemplateBinding Foreground}"
+                                      StrokeStartLineCap="Round"
+                                      StrokeEndLineCap="Round"
+                                      Stretch="Fill"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                                <!-- We don't really need the ContentPresenter, but what the heck ... -->
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonPath" 
+                                        Property="Fill" 
+                                        Value="Gainsboro"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="ButtonPath"
+                                        Property="Fill"
+                                        Value="Gainsboro"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--<Style x:Key="TabItemFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Stroke="#555" StrokeDashArray="1 2" 
+                             StrokeThickness="1" 
+                             Margin="0,8,3,6" 
+                             SnapsToDevicePixels="true"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+        <!-- The Style for TabItems (strips). -->
+        <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
+            <Setter Property="MinWidth" Value="60"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <!-- The Grid helps defining the general height of TabItems. -->
+                        <Grid Height="30" VerticalAlignment="Bottom">
+                            <Border Name="Border" 
+                                    Background="Azure"
+                                    BorderThickness="0 0 1 0"
+                                    BorderBrush="DarkGray">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <!-- Text / TabItem's Caption -->
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- Close button -->
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!-- This is where the Content of the TabItem will be rendered. -->
+                                    <ContentPresenter x:Name="ContentSite"
+                                                      Grid.Column="0"
+                                                      Margin="5 0"
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center"
+                                             ContentSource="Header"
+                                             RecognizesAccessKey="True"/>
+                                    <Button x:Name="cmdTabItemCloseButton"
+                                            Grid.Column="1"
+                                            Margin="2 0 8 0"
+                                            Style="{StaticResource TabItemCloseButtonStyle}"
+                                            Command="{Binding Path=DataContext.TabCloseCommand,RelativeSource={RelativeSource FindAncestor, 
+                                                  AncestorType={x:Type Window}}}"
+                                            CommandParameter="{Binding  
+                                            RelativeSource={RelativeSource FindAncestor, 
+                                                  AncestorType={x:Type TabItem}}}">
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <!-- The appearance of a TabItem when it's inactive/unselected -->
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Border.IsMouseOver" Value="False"/>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="90" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Gainsboro"/>
+                                <Setter Property="Foreground" Value="Black" />
+                            </MultiTrigger>
+                            <!-- The appearance of a TabItem when it's disabled 
+                               (in addition to Selected=False)-->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Panel.ZIndex" Value="80" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="DarkGray" />
+                                <Setter TargetName="Border" Property="Background" Value="DarkGray" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="Header" Value="主页">
+                                <Setter Property="Panel.ZIndex" Value="80" />
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter TargetName="cmdTabItemCloseButton"
+                                        Property="IsEnabled"
+                                        Value="False" />
+                            </Trigger>
+                            <!-- The appearance of a TabItem when it's active/selected -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <!-- We want the selected TabItem to always be on top. -->
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Green" />
+                                <Setter TargetName="Border" Property="Background" Value="Green" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter TargetName="cmdTabItemCloseButton"
+                                        Property="Foreground"
+                                        Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- The TabControl's Style. -->
+        <Style TargetType="{x:Type TabControl}" x:Key="TabControlStyle">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="ItemContainerStyle"  Value="{StaticResource TabItemStyle}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabControl">
+                        <Grid KeyboardNavigation.TabNavigation="Local">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0"
+                                    Name="TabPanelBorder" 
+                                    Height="35">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <!-- The TabItems (resp. the TabPanel) will appear here -->
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- The ScrollViewer controls will appear here -->
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <ScrollViewer Grid.Row="0" Grid.RowSpan="2"
+                                         VerticalScrollBarVisibility="Disabled"
+                                         CanContentScroll="True" 
+                                         HorizontalScrollBarVisibility="Hidden"
+                                         IsDeferredScrollingEnabled="False"
+                                         SnapsToDevicePixels="True"
+                                         Name="svTP"
+                                         HorizontalAlignment="Stretch" 
+                                         VerticalAlignment="Stretch">
+                                        <WrapPanel IsItemsHost="True"
+                                              x:Name="PART_ScrollContentPresenter"
+                                              KeyboardNavigation.TabIndex="1"/>
+                                    </ScrollViewer>
+                                    <StackPanel Grid.Row="0" 
+                                                Grid.Column="1"
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center">
+                                        <RepeatButton x:Name="cmdScrollLeft"
+                                                      Style="{StaticResource LineButtonStyle}"
+                                                      CommandTarget="{Binding ElementName=svTP}"
+                                                      Command="ScrollBar.LineLeftCommand"
+                                                      Content="《"
+                                                      IsEnabled="{Binding ElementName=PART_ScrollContentPresenter,
+                                                            Path=CanScrollLeft}"/>
+                                        <RepeatButton x:Name="cmdScrollRight"
+                                                      Style="{StaticResource LineButtonStyle}"
+                                                      CommandTarget="{Binding ElementName=svTP}"
+                                                      Command="ScrollBar.LineRightCommand"
+                                                      Content="》"
+                                                      IsEnabled="{Binding ElementName=PART_ScrollContentPresenter,
+                                                            Path=CanScrollRight}"/>
+
+                                        <Menu Background="BurlyWood">
+                                            <MenuItem Style="{StaticResource TabMenuButtonStyle}"
+                                                      ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                                             AncestorType={x:Type TabControl}}, Path=Items}"
+                                                      ItemContainerStyle="{StaticResource TabMenuItem}">
+                                            </MenuItem>
+                                        </Menu>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <!-- This is the outer border of the TabControl itself, actually meaning
+                        the Panel that will host a TabItem's content.
+                        The top-border here will not be drawn as, otherwise, the TabPanel
+                        would always show a thin line for the selected Tab (which we want 
+                        to avoid). -->
+                            <Border BorderThickness="1,0,1,1" 
+                                    Grid.Row="1" >
+                                <!-- This is the first/outer Border drawn on the TabPage -->
+                                <Border BorderThickness="1" CornerRadius="3">
+                                    <!-- 
+                              This is the second/inner Border drawn on the TabPage. 
+                              This Border is drawn with a horizontal Gradient that is transparent
+                              on the left which produces the fading effect.-->
+                                    <Border BorderThickness="1"  CornerRadius="2">
+                                        <!-- This is where the Content of the selected TabPage 
+                                             will be rendered. -->
+                                        <ContentPresenter x:Name="PART_SelectedContentHost"
+                                                ContentSource="SelectedContent" 
+                                                Margin="0"/>
+                                    </Border>
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="GridForm">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.08*"></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="0.04*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.21*" x:Name="GridFormLeft"></ColumnDefinition>
+            <ColumnDefinition Width="8" ></ColumnDefinition>
+            <ColumnDefinition Width="*" x:Name="GridFormRight"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF24716F" >
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Foreground="White" FontSize="20"  Text="机场自动广播系统"></TextBlock>
+            </StackPanel>
+        </Border>
+       
+        <!--左侧树形菜单-->
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" Fill="#FF32E4C4" Height="40"></Rectangle>
+                <TreeView Grid.Row="1" x:Name="TreeMenu" Style="{StaticResource TreeViewStyle}"
+                          ItemsSource="{Binding TreeViewContents}" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectedItemChanged">
+                            <i:InvokeCommandAction Command="{Binding ShowPageCommand}"
+                                                   CommandParameter="{Binding ElementName=TreeMenu,Path=SelectedItem}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TreeView>
+                <!--<DockPanel  Grid.Row="1" >
+                    <Menu x:Name="PushMenu" DockPanel.Dock="Top">
+                        <MenuItem Header="设置" >
+                            <MenuItem.Icon>
+                                <Image Source="Images/Tree1.png" Width="15" Height="15"/>
+                            </MenuItem.Icon>
+                            <MenuItem Header="播放次数"></MenuItem>
+                            <MenuItem Header="播放语种"></MenuItem>
+                            <MenuItem Header="播放区域"></MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="帮助">
+                            <MenuItem.Icon>
+                                <Image Source="Images/Tree2.png" Width="15" Height="15"></Image>
+                            </MenuItem.Icon>
+                            <MenuItem Header="问题反馈"></MenuItem>
+                            <MenuItem Header="技术支持"></MenuItem>
+                            <MenuItem Header="关于"></MenuItem>
+                        </MenuItem>
+                    </Menu>
+                </DockPanel>-->
+            </Grid>
+        </StackPanel>
+        <!--<Border Grid.Row="1" Grid.Column="0">
+            <StackPanel >
+            <Expander  Header="设置" Margin="0,0,0,0.1">
+                <StackPanel>
+                        <ListBox HorizontalAlignment="Center">
+                        <ListBoxItem>New York</ListBoxItem>
+                        <ListBoxItem>Los Angeles</ListBoxItem>
+                        <ListBoxItem>Paris</ListBoxItem>
+                        <ListBoxItem>Zurich</ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </Expander>
+                <Expander Header="帮助" Margin="0,0,0,0.1">
+                <StackPanel>
+                    <ListBox HorizontalAlignment="Center">
+                        <ListBoxItem>问题反馈</ListBoxItem>
+                        <ListBoxItem>技术支持</ListBoxItem>
+                        <ListBoxItem>关于</ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </Expander>
+                <Expander Header="用户信息" Margin="0,0,0,0.3">
+                    <StackPanel>
+                        <ListBox HorizontalAlignment="Center">
+                            <ListBoxItem>问题反馈</ListBoxItem>
+                            <ListBoxItem>技术支持</ListBoxItem>
+                            <ListBoxItem>关于</ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            </Border>-->
+
+        <!--<Border Grid.Row="1" Grid.Column="0">
+            <ListBox Name="LbMenu" FontSize="16" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="common:TreeViewContent">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Icon}" Width="16" Height="16"></Image>
+                            <TextBlock Text="{Binding Header}"
+                                   Width="150" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.ContainerStyle>
+                            <Style TargetType="{x:Type GroupItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type GroupItem}">
+                                            <Expander IsExpanded="False"
+                                                  ExpandDirection="Down" Margin="0,0,0,0">
+                                                <Expander.Header>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Path=Name}"
+                                                               VerticalAlignment="Center" />
+                                                    </StackPanel>
+                                                </Expander.Header>
+                                                <ItemsPresenter />
+                                            </Expander>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>
+                    </GroupStyle>
+                </ListBox.GroupStyle>
+            </ListBox>
+        </Border>-->
+        <!-- Expand button-->
+        <Border x:Name="SpliterExpand" Grid.Row="1" Grid.Column="1"  Margin="0" Cursor="Hand" Background="#FF39D6BE" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding SpliterExpandCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <TextBlock x:Name="ImageExpandLeft" Text="《" ToolTip="折叠菜单栏"/>
+        </Border>
+
+        <!--中心操作区-->
+        <Border Grid.Row="1" Grid.Column="2" Background="White">
+            <!--<dockablz:Layout>
+                <dragablz:TabablzControl x:Name="TabMain"
+                                         ItemsSource="{Binding TabContents }">
+                </dragablz:TabablzControl>
+            </dockablz:Layout>-->
+            <TabControl ItemsSource="{Binding TabContents}"
+                        Style="{StaticResource TabControlStyle}"
+                        SelectedItem="{Binding SelectedTabItem}">
+                
+            </TabControl>
+        </Border>
+        <Canvas Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF24716F">
+            <TextBlock Foreground="White" FontSize="15" FontFamily="Segoe Marker" Text="@青岛民航凯亚系统集成有限公司@" Canvas.Top="4" Canvas.Left="500"></TextBlock>
+        </Canvas>
+    </Grid>
+</Window>

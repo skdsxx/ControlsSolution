@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="TabControl.Pages.MainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TabControl.Pages"
+             mc:Ignorable="d" Height="296.341" Width="468.293">
+    <Grid>
+        <Ellipse Fill="#FF86CC3B" HorizontalAlignment="Left" Height="78" Margin="48,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="180"/>
+        <Rectangle Fill="#FFE1381A" HorizontalAlignment="Left" Height="105" Margin="124,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="233"/>
+
+    </Grid>
+</UserControl>
