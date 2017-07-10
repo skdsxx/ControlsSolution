@@ -69,24 +69,27 @@ namespace TabControl.ViewModels
             if (treeItem != null)
             {
                 var tabItem = TabContents.FirstOrDefault(u => u.Header.ToString() == treeItem.Header);
-                if (tabItem!=null)
+                if (tabItem != null)
                 {
+                    tabItem.Tag = "0";
                     tabItem.IsSelected = true;
                     Model.SelectedTabItem = tabItem;
                 }
-                else if(treeItem.Flag!=null)
+                else if (treeItem.Flag == null)
                 {
-                    var tabNew = new TabItem { Header = treeItem.Header,Content = treeItem.Flag,IsSelected = true};
+                    var tabNew = new TabItem { Header = treeItem.Header, Tag = "1", Content = "未完成", IsSelected = true };
                     TabContents.Add(tabNew);
                     Model.SelectedTabItem = TabContents.FirstOrDefault(u => u.Header == tabNew.Header);
+                    //((TabControl2)Application.Current.MainWindow).TabControl.
                 }
                 else
                 {
-                    var tabNew = new TabItem { Header = treeItem.Header, Content ="未完成", IsSelected = true };
+                    var tabNew = new TabItem { Header = treeItem.Header, Tag = "1", Content = treeItem.Flag, IsSelected = true };
                     TabContents.Add(tabNew);
                     Model.SelectedTabItem = TabContents.FirstOrDefault(u => u.Header == tabNew.Header);
                 }
             }
+           
         }
 
         private void InitialTreeMenu()
@@ -104,10 +107,10 @@ namespace TabControl.ViewModels
             TreeViewContents.Add(new TreeViewContent { Header = "异常记录", Icon = "/Images/atm.png", Parent = "广播播放", Flag = new Page4() });
             TreeViewContents.Add(new TreeViewContent { Header = "播放记录", Flag = new Page2(), Parent = "广播播放" });
 
-            TreeViewContents.Add(new TreeViewContent { Header = "日志审计", Parent = "门户设置" });
-            TreeViewContents.Add(new TreeViewContent { Header = "操作日志", Parent = "门户设置", Flag = new Page3() });
-            TreeViewContents.Add(new TreeViewContent { Header = "异常记录", Parent = "门户设置", Flag = new Page4() });
-            TreeViewContents.Add(new TreeViewContent { Header = "播放记录", Flag = new Page1(), Parent = "门户设置" });
+            TreeViewContents.Add(new TreeViewContent { Header = "用户管理", Parent = "门户设置" });
+            TreeViewContents.Add(new TreeViewContent { Header = "登记验证", Parent = "门户设置", Flag = new Page3() });
+            TreeViewContents.Add(new TreeViewContent { Header = "黑名单管理", Parent = "门户设置", Flag = new Page4() });
+            TreeViewContents.Add(new TreeViewContent { Header = "安检验证", Flag = new Page1(), Parent = "门户设置" });
 
 
             var tabNew = new TabItem {Header = "主页",Content = new MainPage()};

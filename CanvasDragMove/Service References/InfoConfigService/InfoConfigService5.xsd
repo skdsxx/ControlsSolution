@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scmis.Services.OperationUtil" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scmis.Services.OperationUtil" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="OperationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultType" type="tns:OperationResultType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationResult" nillable="true" type="tns:OperationResult" />
+  <xs:simpleType name="OperationResultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="NoChange" />
+      <xs:enumeration value="Error" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OperationResultType" nillable="true" type="tns:OperationResultType" />
+</xs:schema>

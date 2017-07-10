@@ -46,7 +46,20 @@ namespace TabControl.Models
             }
         }
 
+        //private bool _isMove;
 
+        //public bool IsMove
+        //{
+        //    get { return _isMove; }
+        //    set
+        //    {
+        //        if (value != _isMove)
+        //        {
+        //            _isMove = value;
+        //            OnPropertyChanged(nameof(IsMove));
+        //        }
+        //    }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

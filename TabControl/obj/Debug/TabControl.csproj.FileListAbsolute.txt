@@ -42,4 +42,5 @@ C:\Users\贤\Desktop\ControlsSolution\TabControl\bin\Debug\zh-Hans\System.Window
 C:\Users\贤\Desktop\ControlsSolution\TabControl\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\App.baml
 C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\Pages\MainPage.baml
-C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\TabControl.csprojResolveAssemblyReference.cache
+C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\TabControl3.g.cs
+C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\TabControl3.baml

@@ -37,5 +37,10 @@ namespace TabControl
             new TabControl2().Show();
             Application.Current.MainWindow = this;
         }
+        private void ButtonDy3_OnClick(object sender, RoutedEventArgs e)
+        {
+            new TabControl3().Show();
+            Application.Current.MainWindow = this;
+        }
     }
 }

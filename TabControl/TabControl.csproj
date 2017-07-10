@@ -88,7 +88,12 @@
     <Compile Include="TabControl2.xaml.cs">
       <DependentUpon>TabControl2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TabControl3.xaml.cs">
+      <DependentUpon>TabControl3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MyTabControl.cs" />
     <Compile Include="ViewModels\TabControl2ViewModel.cs" />
+    <Compile Include="ViewModels\TabControl3ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TabControl2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabControl3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

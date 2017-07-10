@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e615eb7f-f49e-4512-b731-aaa4f60bd3be" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.163.14/ScmisService/InfoConfigService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InfoConfigService.xsd" MetadataType="Schema" ID="04cbe12f-05e0-413d-b22c-400e54b48c94" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd4" />
+    <MetadataFile FileName="InfoConfigService.wsdl" MetadataType="Wsdl" ID="85ce1b66-2c36-4c3a-aad6-cb484df46e70" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?wsdl" />
+    <MetadataFile FileName="InfoConfigService.disco" MetadataType="Disco" ID="b37e06e7-cfb4-4077-b70d-b580d984f269" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?disco" />
+    <MetadataFile FileName="InfoConfigService1.xsd" MetadataType="Schema" ID="f4ed366f-cdbf-4698-b2f3-fc6cd2b958c9" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd3" />
+    <MetadataFile FileName="InfoConfigService2.xsd" MetadataType="Schema" ID="67701ff6-7c85-46c0-8f3c-c2dfca63a9c2" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InfoConfigService3.xsd" MetadataType="Schema" ID="65818e1e-cc4d-453b-a9cd-a1d6c81dbffd" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InfoConfigService4.xsd" MetadataType="Schema" ID="ff74c40b-485a-4376-9550-2cb30c22bfc3" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InfoConfigService5.xsd" MetadataType="Schema" ID="77def076-7acf-4202-8a68-a8bbc7cb5062" SourceId="1" SourceUrl="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

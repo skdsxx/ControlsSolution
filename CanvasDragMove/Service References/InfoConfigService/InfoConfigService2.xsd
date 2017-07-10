@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Scmis.Services.Models.Dtos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scmis.Services.Models.Dtos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Scmis.Utility" />
+  <xs:complexType name="LoginDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Account" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginDto" nillable="true" type="tns:LoginDto" />
+  <xs:complexType name="ArrayOfCfgParameterDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CfgParameterDto" nillable="true" type="tns:CfgParameterDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCfgParameterDto" nillable="true" type="tns:ArrayOfCfgParameterDto" />
+  <xs:complexType name="CfgParameterDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateUser" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CfgParameterDto" nillable="true" type="tns:CfgParameterDto" />
+  <xs:complexType name="BaseDtoOfguid">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="BaseDtoOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Scmis.Services.Models.Dtos" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="guid" Namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseDtoOfguid" nillable="true" type="tns:BaseDtoOfguid" />
+  <xs:complexType name="FtpServerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarryImagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckImagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FtpServerAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FtpServerIp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FtpServerPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FtpServerPort" type="xs:int" />
+      <xs:element minOccurs="0" name="IdCardImagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MtmsImagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityImagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffImagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuspectImagePath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FtpServerDto" nillable="true" type="tns:FtpServerDto" />
+  <xs:complexType name="BsDeviceDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CameraNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Ip" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsRelatedCamera" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Xcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsDeviceDto" nillable="true" type="tns:BsDeviceDto" />
+  <xs:complexType name="ScmisMessageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConfirmBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConfirmTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsConfirm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MessageText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Receiver" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendTime" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Scmis.Utility" minOccurs="0" name="Type" type="q1:MessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScmisMessageDto" nillable="true" type="tns:ScmisMessageDto" />
+  <xs:complexType name="ArrayOfBsDictionaryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsDictionaryDto" nillable="true" type="tns:BsDictionaryDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsDictionaryDto" nillable="true" type="tns:ArrayOfBsDictionaryDto" />
+  <xs:complexType name="BsDictionaryDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateUser" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsDictionaryDto" nillable="true" type="tns:BsDictionaryDto" />
+  <xs:complexType name="SysOperationLogListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OperationLogDtos" nillable="true" type="tns:ArrayOfSysOperationLogDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SysOperationLogListDto" nillable="true" type="tns:SysOperationLogListDto" />
+  <xs:complexType name="ArrayOfSysOperationLogDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SysOperationLogDto" nillable="true" type="tns:SysOperationLogDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSysOperationLogDto" nillable="true" type="tns:ArrayOfSysOperationLogDto" />
+  <xs:complexType name="SysOperationLogDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Host" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Method" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SysOperationLogDto" nillable="true" type="tns:SysOperationLogDto" />
+  <xs:complexType name="ArrayOfBsStaffDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsStaffDto" nillable="true" type="tns:BsStaffDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsStaffDto" nillable="true" type="tns:ArrayOfBsStaffDto" />
+  <xs:complexType name="BsStaffDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Datebirth" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Deletelogo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Education" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Entertime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fingerprint" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsLock" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="National" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nativeplace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Passgrades" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Politicalstatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Postqualification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Professional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RolesId" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="Skilllevel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TeamId" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateLoginTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Workstatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsStaffDto" nillable="true" type="tns:BsStaffDto" />
+  <xs:complexType name="BsStaffListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StaffDtos" nillable="true" type="tns:ArrayOfBsStaffDtoone" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsStaffListDto" nillable="true" type="tns:BsStaffListDto" />
+  <xs:complexType name="ArrayOfBsStaffDtoone">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsStaffDtoone" nillable="true" type="tns:BsStaffDtoone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsStaffDtoone" nillable="true" type="tns:ArrayOfBsStaffDtoone" />
+  <xs:complexType name="BsStaffDtoone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Datebirth" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Deletelogo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Education" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Entertime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fingerprint" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsLock" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="National" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NationalName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nativeplace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Passgrades" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Politicalstatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Postqualification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostqualificationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Professional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RolesId" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="RolesName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Skilllevel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TeamId" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateLoginTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Workstatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsStaffDtoone" nillable="true" type="tns:BsStaffDtoone" />
+  <xs:complexType name="BsDepartmentDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeaderPassgrade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OfficePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsDepartmentDto" nillable="true" type="tns:BsDepartmentDto" />
+  <xs:complexType name="BsTeamDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element minOccurs="0" name="DepartmentId" type="ser:guid" />
+          <xs:element minOccurs="0" name="LeaderPassgrade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsTeamDto" nillable="true" type="tns:BsTeamDto" />
+  <xs:complexType name="ArrayOfBsDepartmentDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsDepartmentDto" nillable="true" type="tns:BsDepartmentDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsDepartmentDto" nillable="true" type="tns:ArrayOfBsDepartmentDto" />
+  <xs:complexType name="ArrayOfBsDepartmentLeaderDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsDepartmentLeaderDto" nillable="true" type="tns:BsDepartmentLeaderDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsDepartmentLeaderDto" nillable="true" type="tns:ArrayOfBsDepartmentLeaderDto" />
+  <xs:complexType name="BsDepartmentLeaderDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeaderName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeaderPassgrade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OfficePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsDepartmentLeaderDto" nillable="true" type="tns:BsDepartmentLeaderDto" />
+  <xs:complexType name="ArrayOfBsTeamDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsTeamDto" nillable="true" type="tns:BsTeamDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsTeamDto" nillable="true" type="tns:ArrayOfBsTeamDto" />
+  <xs:complexType name="ArrayOfBsStaffTeamDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsStaffTeamDto" nillable="true" type="tns:BsStaffTeamDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsStaffTeamDto" nillable="true" type="tns:ArrayOfBsStaffTeamDto" />
+  <xs:complexType name="BsStaffTeamDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepartName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentId" type="ser:guid" />
+          <xs:element minOccurs="0" name="IsLeader" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeaderIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameShow" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" type="xs:int" />
+          <xs:element minOccurs="0" name="Passgrades" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Skilllevel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TeamId" type="ser:guid" />
+          <xs:element minOccurs="0" name="TeamName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsStaffTeamDto" nillable="true" type="tns:BsStaffTeamDto" />
+  <xs:complexType name="ArrayOfBsSchedualTableDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsSchedualTableDto" nillable="true" type="tns:BsSchedualTableDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsSchedualTableDto" nillable="true" type="tns:ArrayOfBsSchedualTableDto" />
+  <xs:complexType name="BsSchedualTableDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepartmentId" type="ser:guid" />
+          <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EightTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="FirstTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="FiveTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="FourTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="IsHasSchedual" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NineTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="SecondTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="SevenTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="SixTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="TenTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+          <xs:element minOccurs="0" name="ThirdTeams" nillable="true" type="tns:ArrayOfBsTeamDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsSchedualTableDto" nillable="true" type="tns:BsSchedualTableDto" />
+  <xs:complexType name="ArrayOfBsSchedualExcelDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsSchedualExcelDto" nillable="true" type="tns:BsSchedualExcelDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsSchedualExcelDto" nillable="true" type="tns:ArrayOfBsSchedualExcelDto" />
+  <xs:complexType name="BsSchedualExcelDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartmentId" type="ser:guid" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchedualDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TeamNames" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsSchedualExcelDto" nillable="true" type="tns:BsSchedualExcelDto" />
+  <xs:complexType name="ArrayOfBsAttendanceDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsAttendanceDto" nillable="true" type="tns:BsAttendanceDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsAttendanceDto" nillable="true" type="tns:ArrayOfBsAttendanceDto" />
+  <xs:complexType name="BsAttendanceDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CheckStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OffWorkingTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ResourceId" type="ser:guid" />
+          <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StaffId" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkingTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsAttendanceDto" nillable="true" type="tns:BsAttendanceDto" />
+  <xs:complexType name="ArrayOfBsAttendanceWorkRecordDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsAttendanceWorkRecordDto" nillable="true" type="tns:BsAttendanceWorkRecordDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsAttendanceWorkRecordDto" nillable="true" type="tns:ArrayOfBsAttendanceWorkRecordDto" />
+  <xs:complexType name="BsAttendanceWorkRecordDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PositionType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceId" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffId" type="ser:guid" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsAttendanceWorkRecordDto" nillable="true" type="tns:BsAttendanceWorkRecordDto" />
+  <xs:complexType name="BsResourceDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRelatedResource" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsResourceDto" nillable="true" type="tns:BsResourceDto" />
+  <xs:complexType name="ArrayOfBsAttendanceStaffInfoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsAttendanceStaffInfoDto" nillable="true" type="tns:BsAttendanceStaffInfoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsAttendanceStaffInfoDto" nillable="true" type="tns:ArrayOfBsAttendanceStaffInfoDto" />
+  <xs:complexType name="BsAttendanceStaffInfoDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsUnderway" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Passgrades" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PositionType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceId" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffId" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsAttendanceStaffInfoDto" nillable="true" type="tns:BsAttendanceStaffInfoDto" />
+  <xs:complexType name="AttendanceRecordTimeLineListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttendanceRecords" nillable="true" type="tns:ArrayOfBsAttendanceRecordGroupDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AttendanceRecordTimeLineListDto" nillable="true" type="tns:AttendanceRecordTimeLineListDto" />
+  <xs:complexType name="ArrayOfBsAttendanceRecordGroupDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsAttendanceRecordGroupDto" nillable="true" type="tns:BsAttendanceRecordGroupDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsAttendanceRecordGroupDto" nillable="true" type="tns:ArrayOfBsAttendanceRecordGroupDto" />
+  <xs:complexType name="BsAttendanceRecordGroupDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Passgrades" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffId" type="ser:guid" />
+      <xs:element minOccurs="0" name="StaffName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffRecords" nillable="true" type="tns:ArrayOfBsAttendanceStaffInfoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsAttendanceRecordGroupDto" nillable="true" type="tns:BsAttendanceRecordGroupDto" />
+  <xs:complexType name="ArrayOfBsAttendanceRecordRealtimeStaffDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsAttendanceRecordRealtimeStaffDto" nillable="true" type="tns:BsAttendanceRecordRealtimeStaffDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsAttendanceRecordRealtimeStaffDto" nillable="true" type="tns:ArrayOfBsAttendanceRecordRealtimeStaffDto" />
+  <xs:complexType name="BsAttendanceRecordRealtimeStaffDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DepartmentId" type="ser:guid" />
+          <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PositionType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceId" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffId" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffImg" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StaffName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StaffPassgrades" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StaffPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TeamId" type="ser:guid" />
+          <xs:element minOccurs="0" name="TeamName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsAttendanceRecordRealtimeStaffDto" nillable="true" type="tns:BsAttendanceRecordRealtimeStaffDto" />
+  <xs:complexType name="ArrayOfBsResourceDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsResourceDto" nillable="true" type="tns:BsResourceDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsResourceDto" nillable="true" type="tns:ArrayOfBsResourceDto" />
+  <xs:complexType name="ArrayOfBsSuspectDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsSuspectDto" nillable="true" type="tns:BsSuspectDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsSuspectDto" nillable="true" type="tns:ArrayOfBsSuspectDto" />
+  <xs:complexType name="BsSuspectDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Appearance" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Birthday" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CancelSusReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckChannel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckPerson" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckResult" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DisplayGrade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FlightNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsCheck" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NameCn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameEn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProcessingResult" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SeePhoto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SusReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsSuspectDto" nillable="true" type="tns:BsSuspectDto" />
+  <xs:complexType name="BsSuspectListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BsSuspectDtos" nillable="true" type="tns:ArrayOfBsSuspectDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsSuspectListDto" nillable="true" type="tns:BsSuspectListDto" />
+  <xs:complexType name="ArrayOfBsSuspectExcelDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsSuspectExcelDto" nillable="true" type="tns:BsSuspectExcelDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsSuspectExcelDto" nillable="true" type="tns:ArrayOfBsSuspectExcelDto" />
+  <xs:complexType name="BsSuspectExcelDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Appearance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Birthday" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CheckChannel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DisplayGrade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FlightNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NameCn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessingResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SusReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsSuspectExcelDto" nillable="true" type="tns:BsSuspectExcelDto" />
+  <xs:complexType name="ArrayOfBsContrabandDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsContrabandDto" nillable="true" type="tns:BsContrabandDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsContrabandDto" nillable="true" type="tns:ArrayOfBsContrabandDto" />
+  <xs:complexType name="BsContrabandDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsPullBlack" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsShortcut" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PullBlackShow" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShowOrder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsContrabandDto" nillable="true" type="tns:BsContrabandDto" />
+  <xs:complexType name="BsContrabandListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BsContrabandDtos" nillable="true" type="tns:ArrayOfBsContrabandDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsContrabandListDto" nillable="true" type="tns:BsContrabandListDto" />
+  <xs:complexType name="ArrayOfBsTemporaryGoodsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsTemporaryGoodsDto" nillable="true" type="tns:BsTemporaryGoodsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsTemporaryGoodsDto" nillable="true" type="tns:ArrayOfBsTemporaryGoodsDto" />
+  <xs:complexType name="BsTemporaryGoodsDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BoardNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FlightDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FlightNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GoodsName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GoodsNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="GoodsState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GoodsType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GoodsUnit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OperateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Operator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassengerCardId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassengerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassengerPhoneNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassengerPhoto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceiveTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Receiver" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceiverCardId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsTemporaryGoodsDto" nillable="true" type="tns:BsTemporaryGoodsDto" />
+  <xs:complexType name="BsTemporaryGoodsListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TemporaryGoods" nillable="true" type="tns:ArrayOfBsTemporaryGoodsDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsTemporaryGoodsListDto" nillable="true" type="tns:BsTemporaryGoodsListDto" />
+  <xs:complexType name="ArrayOfRcCivilizationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RcCivilizationDto" nillable="true" type="tns:RcCivilizationDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRcCivilizationDto" nillable="true" type="tns:ArrayOfRcCivilizationDto" />
+  <xs:complexType name="RcCivilizationDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificEvent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SpecificType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RcCivilizationDto" nillable="true" type="tns:RcCivilizationDto" />
+  <xs:complexType name="RcCivilizationListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RcCivDtos" nillable="true" type="tns:ArrayOfRcCivilizationDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RcCivilizationListDto" nillable="true" type="tns:RcCivilizationListDto" />
+  <xs:complexType name="ArrayOfRcEventDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RcEventDto" nillable="true" type="tns:RcEventDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRcEventDto" nillable="true" type="tns:ArrayOfRcEventDto" />
+  <xs:complexType name="RcEventDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificEvent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Staff_Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RcEventDto" nillable="true" type="tns:RcEventDto" />
+  <xs:complexType name="RcEventListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RcEventDtos" nillable="true" type="tns:ArrayOfRcEventDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RcEventListDto" nillable="true" type="tns:RcEventListDto" />
+  <xs:complexType name="ArrayOfRcGleanDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RcGleanDto" nillable="true" type="tns:RcGleanDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRcGleanDto" nillable="true" type="tns:ArrayOfRcGleanDto" />
+  <xs:complexType name="RcGleanDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Finder_Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Goods_Classify" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Goods_Counts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Goods_Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HandleTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Passenger_CardID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Passenger_Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Passenger_Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Staff_Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RcGleanDto" nillable="true" type="tns:RcGleanDto" />
+  <xs:complexType name="RcGleanListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RcGleDtos" nillable="true" type="tns:ArrayOfRcGleanDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RcGleanListDto" nillable="true" type="tns:RcGleanListDto" />
+  <xs:complexType name="ArrayOfRcHandDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RcHandDto" nillable="true" type="tns:RcHandDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRcHandDto" nillable="true" type="tns:ArrayOfRcHandDto" />
+  <xs:complexType name="RcHandDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificEvent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RcHandDto" nillable="true" type="tns:RcHandDto" />
+  <xs:complexType name="RcHandListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RcHanDtos" nillable="true" type="tns:ArrayOfRcHandDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RcHandListDto" nillable="true" type="tns:RcHandListDto" />
+  <xs:complexType name="ArrayOfRcRewordpunishDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RcRewordpunishDto" nillable="true" type="tns:RcRewordpunishDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRcRewordpunishDto" nillable="true" type="tns:ArrayOfRcRewordpunishDto" />
+  <xs:complexType name="RcRewordpunishDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Classify" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificEvent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RcRewordpunishDto" nillable="true" type="tns:RcRewordpunishDto" />
+  <xs:complexType name="RcRewordpunishListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RcRewDtos" nillable="true" type="tns:ArrayOfRcRewordpunishDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RcRewordpunishListDto" nillable="true" type="tns:RcRewordpunishListDto" />
+  <xs:complexType name="SysLoginLogListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LoginLogDtos" nillable="true" type="tns:ArrayOfSysLoginLogDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SysLoginLogListDto" nillable="true" type="tns:SysLoginLogListDto" />
+  <xs:complexType name="ArrayOfSysLoginLogDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SysLoginLogDto" nillable="true" type="tns:SysLoginLogDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSysLoginLogDto" nillable="true" type="tns:ArrayOfSysLoginLogDto" />
+  <xs:complexType name="SysLoginLogDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Subsystem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SysLoginLogDto" nillable="true" type="tns:SysLoginLogDto" />
+  <xs:complexType name="ArrayOfBsCameraDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsCameraDto" nillable="true" type="tns:BsCameraDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsCameraDto" nillable="true" type="tns:ArrayOfBsCameraDto" />
+  <xs:complexType name="BsCameraDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DvrIp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsCameraDto" nillable="true" type="tns:BsCameraDto" />
+  <xs:complexType name="BsCameraListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CameraDtos" nillable="true" type="tns:ArrayOfBsCameraDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsCameraListDto" nillable="true" type="tns:BsCameraListDto" />
+  <xs:complexType name="ArrayOfBsImportantPassengerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsImportantPassengerDto" nillable="true" type="tns:BsImportantPassengerDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsImportantPassengerDto" nillable="true" type="tns:ArrayOfBsImportantPassengerDto" />
+  <xs:complexType name="BsImportantPassengerDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfint">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Favorite" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsImportantPassengerDto" nillable="true" type="tns:BsImportantPassengerDto" />
+  <xs:complexType name="BaseDtoOfint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="BaseDtoOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Scmis.Services.Models.Dtos" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseDtoOfint" nillable="true" type="tns:BaseDtoOfint" />
+  <xs:complexType name="BsBlacklistListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BlacklistDtos" nillable="true" type="tns:ArrayOfBsBlacklistDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsBlacklistListDto" nillable="true" type="tns:BsBlacklistListDto" />
+  <xs:complexType name="ArrayOfBsBlacklistDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsBlacklistDto" nillable="true" type="tns:BsBlacklistDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsBlacklistDto" nillable="true" type="tns:ArrayOfBsBlacklistDto" />
+  <xs:complexType name="BsBlacklistDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BlockingReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FlightDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FlightNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GenderName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsRemove" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRemovestr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" type="xs:int" />
+          <xs:element minOccurs="0" name="OperateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OperatePeople" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsBlacklistDto" nillable="true" type="tns:BsBlacklistDto" />
+  <xs:complexType name="ArrayOfBsSuspectFlightDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BsSuspectFlightDto" nillable="true" type="tns:BsSuspectFlightDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBsSuspectFlightDto" nillable="true" type="tns:ArrayOfBsSuspectFlightDto" />
+  <xs:complexType name="BsSuspectFlightDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDtoOfguid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CheckChannel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckPerson" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckResult" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Departure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndSuspectDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FlightNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Grade" type="xs:int" />
+          <xs:element minOccurs="0" name="GradeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsCheck" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCheckstr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsTerminate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTerminatestr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProcessingResult" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartSuspectDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SuspectReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerminateBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerminateReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerminateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BsSuspectFlightDto" nillable="true" type="tns:BsSuspectFlightDto" />
+  <xs:complexType name="BsSuspectFlightListDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BsSuspectFlightDtos" nillable="true" type="tns:ArrayOfBsSuspectFlightDto" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BsSuspectFlightListDto" nillable="true" type="tns:BsSuspectFlightListDto" />
+</xs:schema>

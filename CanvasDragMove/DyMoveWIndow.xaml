@@ -1,0 +1,26 @@
+﻿<Window x:Class="CanvasDragMove.DyMoveWIndow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CanvasDragMove"
+        mc:Ignorable="d"
+        Title="DyMoveWIndow" Height="600" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="LayoutRoot" 
+                Grid.Column="0"
+                Background="Azure">
+            
+        </Canvas>
+        <StackPanel Grid.Column="1">
+            <Button Content="初始化按钮" Click="ButtonInitAdd_OnClick"/>
+            <Button Content="清空缓存" Click="ButtonClear_OnClick"></Button>
+        </StackPanel>
+    </Grid>
+ 
+</Window>

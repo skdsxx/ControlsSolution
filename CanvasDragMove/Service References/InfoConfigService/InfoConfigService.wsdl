@@ -1,0 +1,2523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InfoConfigService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IInfoConfig_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Scmis.Services.Models.Dtos" />
+      <xsd:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Scmis.Utility" />
+      <xsd:import schemaLocation="http://192.168.163.14/ScmisService/InfoConfigService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Scmis.Services.OperationUtil" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IInfoConfig_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VerifyUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VerifyUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_UpdateUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_UpdateUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_IsHasSubsystemAuth_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsHasSubsystemAuth" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_IsHasSubsystemAuth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsHasSubsystemAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_Heartbeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:Heartbeat" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_Heartbeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HeartbeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetFtpUpload_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFtpUpload" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetFtpUpload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFtpUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetFtpServerInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFtpServerInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetFtpServerInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFtpServerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetConfigure_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigure" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetConfigure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetDeviceRelationIp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceRelationIp" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetDeviceRelationIp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceRelationIpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddScmisMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddScmisMessage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddScmisMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddScmisMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_ConfirmScmisMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmScmisMessage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_ConfirmScmisMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmScmisMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_QueryDictionaryByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDictionaryByType" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_QueryDictionaryByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDictionaryByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_OperationLogAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:OperationLogAdd" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_OperationLogAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OperationLogAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllOperationLogAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOperationLogAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllOperationLogAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOperationLogAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetOperationLogsByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOperationLogsByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetOperationLogsByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOperationLogsByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetOperationLogsByInfoAndTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOperationLogsByInfoAndTime" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetOperationLogsByInfoAndTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOperationLogsByInfoAndTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllStaffs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffs" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllStaffs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllStaffsAsPageone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffsAsPageone" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllStaffsAsPageone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffsAsPageoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsStaffByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsStaffByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsStaffByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsStaffByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsStaffByInfoAsPageone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsStaffByInfoAsPageone" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsStaffByInfoAsPageone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsStaffByInfoAsPageoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsStaff" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_BsStaffIsOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:BsStaffIsOnline" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_BsStaffIsOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BsStaffIsOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_UpdateStaffIsOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStaffIsOnline" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_UpdateStaffIsOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStaffIsOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateStaff" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateTeam" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateTeamStaffs_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateTeamStaffs" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateTeamStaffs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateTeamStaffsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteTeams_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeams" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteTeams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllDepartmentsWithLeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentsWithLeader" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllDepartmentsWithLeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentsWithLeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetTeamsByDepartmentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamsByDepartmentId" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetTeamsByDepartmentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamsByDepartmentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsByTeamId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsByTeamId" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsByTeamId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsByTeamIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllTeams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTeams" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllTeams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsByTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsByTeam" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsByTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsByTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllStaffsInRelated_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffsInRelated" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllStaffsInRelated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffsInRelatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsWithNoTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsWithNoTeam" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsWithNoTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsWithNoTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsWithTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsWithTeam" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsWithTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsWithTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsInRelated_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsInRelated" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsInRelated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsInRelatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffsByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffsByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddTeamStaffs_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeamStaffs" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddTeamStaffs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeamStaffsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteStaffFromTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStaffFromTeam" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteStaffFromTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStaffFromTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_SetTeamLeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTeamLeader" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_SetTeamLeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTeamLeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_SetDepartmentLeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDepartmentLeader" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_SetDepartmentLeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDepartmentLeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetTendaySchedualTableByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTendaySchedualTableByDate" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetTendaySchedualTableByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTendaySchedualTableByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateScheduals_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateScheduals" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateScheduals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateSchedualsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetSchedualTeamsByDepartmentIdAndDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchedualTeamsByDepartmentIdAndDate" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetSchedualTeamsByDepartmentIdAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchedualTeamsByDepartmentIdAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetMonthSchedualTableByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonthSchedualTableByDate" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetMonthSchedualTableByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonthSchedualTableByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsAttendance_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsAttendance" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsAttendance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsAttendanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsAttendance_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsAttendance" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsAttendance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsAttendanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsAttendances_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsAttendances" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsAttendances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsAttendancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateAttendanceWorkRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateAttendanceWorkRecord" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateAttendanceWorkRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateAttendanceWorkRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAndSetPassResourceByIp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAndSetPassResourceByIp" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAndSetPassResourceByIp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAndSetPassResourceByIpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddPositionStartTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPositionStartTime" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddPositionStartTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPositionStartTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddPositionEndTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPositionEndTime" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddPositionEndTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPositionEndTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_LaidoffAllPosition_InputMessage">
+    <wsdl:part name="parameters" element="tns:LaidoffAllPosition" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_LaidoffAllPosition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LaidoffAllPositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffInfoByPositionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffInfoByPositionInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetStaffInfoByPositionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffInfoByPositionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteAttendanceWorkRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttendanceWorkRecord" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteAttendanceWorkRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttendanceWorkRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllAttendanceWorkRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAttendanceWorkRecords" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllAttendanceWorkRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAttendanceWorkRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAttendanceRecordsByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendanceRecordsByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAttendanceRecordsByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendanceRecordsByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetPassWorkingStaffRealtimeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassWorkingStaffRealtimeInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetPassWorkingStaffRealtimeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassWorkingStaffRealtimeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetPassResourcesByPassRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassResourcesByPassRegion" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetPassResourcesByPassRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassResourcesByPassRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsSuspect_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsSuspect" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsSuspect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsSuspectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsSuspects_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsSuspects" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsSuspects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsSuspectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsSuspectAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsSuspectAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsSuspectAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsSuspectAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsSuspectByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsSuspectByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsSuspectByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsSuspectByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_ReturnSusPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnSusPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_ReturnSusPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnSusPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllSuspectExcel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSuspectExcel" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllSuspectExcel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSuspectExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsContraband_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsContraband" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsContraband_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsContrabandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsContraband_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsContraband" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsContraband_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsContrabandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsContrabandAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsContrabandAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsContrabandAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsContrabandAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsContrabandByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsContrabandByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsContrabandByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsContrabandByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsTemporaryGoods_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsTemporaryGoods" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsTemporaryGoods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsTemporaryGoodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsTemporaryGoods_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsTemporaryGoods" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsTemporaryGoods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsTemporaryGoodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsTemporaryGoodsAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsTemporaryGoodsAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsTemporaryGoodsAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsTemporaryGoodsAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsTemporaryGoodsByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsTemporaryGoodsByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsTemporaryGoodsByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsTemporaryGoodsByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsTemporaryGoodsByPassenger_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsTemporaryGoodsByPassenger" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsTemporaryGoodsByPassenger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsTemporaryGoodsByPassengerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcCivilization_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcCivilization" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcCivilization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcCivilizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcCivilization_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcCivilization" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcCivilization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcCivilizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcCivilizationByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcCivilizationByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcCivilizationByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcCivilizationByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcCivilizationAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcCivilizationAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcCivilizationAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcCivilizationAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcCivilizationByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcCivilizationByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcCivilizationByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcCivilizationByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcEvent" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcEvent" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcEventByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcEventByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcEventByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcEventByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcEventAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcEventAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcEventAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcEventAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcEventByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcEventByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcEventByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcEventByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcGlean_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcGlean" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcGlean_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcGleanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcGleanByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcGleanByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcGleanByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcGleanByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcGlean_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcGlean" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcGlean_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcGleanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcGleanAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcGleanAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcGleanAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcGleanAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcGleanByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcGleanByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcGleanByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcGleanByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcHand_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcHand" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcHand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcHandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcHandByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcHandByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcHandByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcHandByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcHand_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcHand" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcHand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcHandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcHandAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcHandAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcHandAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcHandAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcHandByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcHandByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcHandByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcHandByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcRewordpunish_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcRewordpunish" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRcRewordpunish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRcRewordpunishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRewordpunishDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRewordpunishDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateRewordpunishDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateRewordpunishDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcRewordpunishByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcRewordpunishByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcRewordpunishByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcRewordpunishByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcRewordpunish_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcRewordpunish" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteRcRewordpunish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRcRewordpunishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcRewordpunishAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcRewordpunishAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllRcRewordpunishAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRcRewordpunishAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcRewordpunishByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcRewordpunishByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetRcRewordpunishByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRcRewordpunishByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllLoginLogAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLoginLogAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllLoginLogAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLoginLogAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetLoginLogsByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginLogsByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetLoginLogsByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginLogsByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetLoginLogsByInfoAndTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginLogsByInfoAndTime" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetLoginLogsByInfoAndTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginLogsByInfoAndTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsCamera_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsCamera" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsCamera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsCameraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsCameraByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsCameraByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsCameraByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsCameraByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsCameraByResourceId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsCameraByResourceId" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsCameraByResourceId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsCameraByResourceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_SetResourceCameraRelations_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetResourceCameraRelations" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_SetResourceCameraRelations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetResourceCameraRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllCamerasAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCamerasAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllCamerasAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCamerasAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsCameraByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsCameraByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsCameraByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsCameraByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsCamera_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsCamera" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsCamera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsCameraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeletBsCamera_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletBsCamera" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeletBsCamera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletBsCameraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllVIP_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVIP" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllVIP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetVipPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVipPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetVipPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVipPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VIPAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:VIPAdd" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VIPAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VIPAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VIPUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:VIPUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VIPUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VIPUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VIPDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:VIPDelete" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_VIPDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VIPDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBlacklistsAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBlacklistsAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBlacklistsAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBlacklistsAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsBlacklist_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsBlacklist" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsBlacklist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsBlacklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsBlacklistByInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsBlacklistByInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsBlacklistByInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsBlacklistByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsBlacklist_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsBlacklist" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsBlacklist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsBlacklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_HandBsBlacklist_InputMessage">
+    <wsdl:part name="parameters" element="tns:HandBsBlacklist" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_HandBsBlacklist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HandBsBlacklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_UpdateHandBsBlacklist_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHandBsBlacklist" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_UpdateHandBsBlacklist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHandBsBlacklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsBlacklistByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsBlacklistByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsBlacklistByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsBlacklistByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeletBsBlacklist_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletBsBlacklist" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeletBsBlacklist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletBsBlacklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsSuspectFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsSuspectFlight" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_AddOrUpdateBsSuspectFlight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateBsSuspectFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsSuspectFlights_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsSuspectFlights" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_DeleteBsSuspectFlights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBsSuspectFlightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsSuspectFlightAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsSuspectFlightAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetAllBsSuspectFlightAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBsSuspectFlightAsPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsSuspectFlightByInfoAsPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsSuspectFlightByInfoAsPage" />
+  </wsdl:message>
+  <wsdl:message name="IInfoConfig_GetBsSuspectFlightByInfoAsPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBsSuspectFlightByInfoAsPageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IInfoConfig">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/Login" message="tns:IInfoConfig_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/LoginResponse" message="tns:IInfoConfig_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/VerifyUserPassword" message="tns:IInfoConfig_VerifyUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/VerifyUserPasswordResponse" message="tns:IInfoConfig_VerifyUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateUserPassword" message="tns:IInfoConfig_UpdateUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateUserPasswordResponse" message="tns:IInfoConfig_UpdateUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsHasSubsystemAuth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/IsHasSubsystemAuth" message="tns:IInfoConfig_IsHasSubsystemAuth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/IsHasSubsystemAuthResponse" message="tns:IInfoConfig_IsHasSubsystemAuth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Heartbeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/Heartbeat" message="tns:IInfoConfig_Heartbeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/HeartbeatResponse" message="tns:IInfoConfig_Heartbeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFtpUpload">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetFtpUpload" message="tns:IInfoConfig_GetFtpUpload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetFtpUploadResponse" message="tns:IInfoConfig_GetFtpUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFtpServerInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetFtpServerInfo" message="tns:IInfoConfig_GetFtpServerInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetFtpServerInfoResponse" message="tns:IInfoConfig_GetFtpServerInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigure">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetConfigure" message="tns:IInfoConfig_GetConfigure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetConfigureResponse" message="tns:IInfoConfig_GetConfigure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceRelationIp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetDeviceRelationIp" message="tns:IInfoConfig_GetDeviceRelationIp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetDeviceRelationIpResponse" message="tns:IInfoConfig_GetDeviceRelationIp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddScmisMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/AddScmisMessage" message="tns:IInfoConfig_AddScmisMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/AddScmisMessageResponse" message="tns:IInfoConfig_AddScmisMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmScmisMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/ConfirmScmisMessage" message="tns:IInfoConfig_ConfirmScmisMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/ConfirmScmisMessageResponse" message="tns:IInfoConfig_ConfirmScmisMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryDictionaryByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/QueryDictionaryByType" message="tns:IInfoConfig_QueryDictionaryByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/QueryDictionaryByTypeResponse" message="tns:IInfoConfig_QueryDictionaryByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OperationLogAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/OperationLogAdd" message="tns:IInfoConfig_OperationLogAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/OperationLogAddResponse" message="tns:IInfoConfig_OperationLogAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOperationLogAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetAllOperationLogAsPage" message="tns:IInfoConfig_GetAllOperationLogAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetAllOperationLogAsPageResponse" message="tns:IInfoConfig_GetAllOperationLogAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationLogsByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetOperationLogsByInfo" message="tns:IInfoConfig_GetOperationLogsByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetOperationLogsByInfoResponse" message="tns:IInfoConfig_GetOperationLogsByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationLogsByInfoAndTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetOperationLogsByInfoAndTime" message="tns:IInfoConfig_GetOperationLogsByInfoAndTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetOperationLogsByInfoAndTimeResponse" message="tns:IInfoConfig_GetOperationLogsByInfoAndTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllStaffs" message="tns:IInfoConfig_GetAllStaffs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllStaffsResponse" message="tns:IInfoConfig_GetAllStaffs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffsAsPageone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllStaffsAsPageone" message="tns:IInfoConfig_GetAllStaffsAsPageone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllStaffsAsPageoneResponse" message="tns:IInfoConfig_GetAllStaffsAsPageone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsStaffByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsStaffByInfoAsPage" message="tns:IInfoConfig_GetBsStaffByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsStaffByInfoAsPageResponse" message="tns:IInfoConfig_GetBsStaffByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsStaffByInfoAsPageone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsStaffByInfoAsPageone" message="tns:IInfoConfig_GetBsStaffByInfoAsPageone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsStaffByInfoAsPageoneResponse" message="tns:IInfoConfig_GetBsStaffByInfoAsPageone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsStaff" message="tns:IInfoConfig_DeleteBsStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsStaffResponse" message="tns:IInfoConfig_DeleteBsStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BsStaffIsOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/BsStaffIsOnline" message="tns:IInfoConfig_BsStaffIsOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/BsStaffIsOnlineResponse" message="tns:IInfoConfig_BsStaffIsOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStaffIsOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/UpdateStaffIsOnline" message="tns:IInfoConfig_UpdateStaffIsOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/UpdateStaffIsOnlineResponse" message="tns:IInfoConfig_UpdateStaffIsOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateStaff" message="tns:IInfoConfig_AddOrUpdateStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateStaffResponse" message="tns:IInfoConfig_AddOrUpdateStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateDepartment" message="tns:IInfoConfig_AddOrUpdateDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateDepartmentResponse" message="tns:IInfoConfig_AddOrUpdateDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateTeam" message="tns:IInfoConfig_AddOrUpdateTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateTeamResponse" message="tns:IInfoConfig_AddOrUpdateTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateTeamStaffs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateTeamStaffs" message="tns:IInfoConfig_AddOrUpdateTeamStaffs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateTeamStaffsResponse" message="tns:IInfoConfig_AddOrUpdateTeamStaffs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteDepartments" message="tns:IInfoConfig_DeleteDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteDepartmentsResponse" message="tns:IInfoConfig_DeleteDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteTeams" message="tns:IInfoConfig_DeleteTeams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteTeamsResponse" message="tns:IInfoConfig_DeleteTeams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllDepartment" message="tns:IInfoConfig_GetAllDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllDepartmentResponse" message="tns:IInfoConfig_GetAllDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartmentsWithLeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllDepartmentsWithLeader" message="tns:IInfoConfig_GetAllDepartmentsWithLeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllDepartmentsWithLeaderResponse" message="tns:IInfoConfig_GetAllDepartmentsWithLeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamsByDepartmentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetTeamsByDepartmentId" message="tns:IInfoConfig_GetTeamsByDepartmentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetTeamsByDepartmentIdResponse" message="tns:IInfoConfig_GetTeamsByDepartmentId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsByTeamId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsByTeamId" message="tns:IInfoConfig_GetStaffsByTeamId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsByTeamIdResponse" message="tns:IInfoConfig_GetStaffsByTeamId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTeams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllTeams" message="tns:IInfoConfig_GetAllTeams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllTeamsResponse" message="tns:IInfoConfig_GetAllTeams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsByTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsByTeam" message="tns:IInfoConfig_GetStaffsByTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsByTeamResponse" message="tns:IInfoConfig_GetStaffsByTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffsInRelated">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllStaffsInRelated" message="tns:IInfoConfig_GetAllStaffsInRelated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllStaffsInRelatedResponse" message="tns:IInfoConfig_GetAllStaffsInRelated_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsWithNoTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsWithNoTeam" message="tns:IInfoConfig_GetStaffsWithNoTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsWithNoTeamResponse" message="tns:IInfoConfig_GetStaffsWithNoTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsWithTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsWithTeam" message="tns:IInfoConfig_GetStaffsWithTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsWithTeamResponse" message="tns:IInfoConfig_GetStaffsWithTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsInRelated">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsInRelated" message="tns:IInfoConfig_GetStaffsInRelated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsInRelatedResponse" message="tns:IInfoConfig_GetStaffsInRelated_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsByInfo" message="tns:IInfoConfig_GetStaffsByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffsByInfoResponse" message="tns:IInfoConfig_GetStaffsByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTeamStaffs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddTeamStaffs" message="tns:IInfoConfig_AddTeamStaffs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddTeamStaffsResponse" message="tns:IInfoConfig_AddTeamStaffs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStaffFromTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteStaffFromTeam" message="tns:IInfoConfig_DeleteStaffFromTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteStaffFromTeamResponse" message="tns:IInfoConfig_DeleteStaffFromTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTeamLeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/SetTeamLeader" message="tns:IInfoConfig_SetTeamLeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/SetTeamLeaderResponse" message="tns:IInfoConfig_SetTeamLeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDepartmentLeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/SetDepartmentLeader" message="tns:IInfoConfig_SetDepartmentLeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/SetDepartmentLeaderResponse" message="tns:IInfoConfig_SetDepartmentLeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTendaySchedualTableByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetTendaySchedualTableByDate" message="tns:IInfoConfig_GetTendaySchedualTableByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetTendaySchedualTableByDateResponse" message="tns:IInfoConfig_GetTendaySchedualTableByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateScheduals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateScheduals" message="tns:IInfoConfig_AddOrUpdateScheduals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateSchedualsResponse" message="tns:IInfoConfig_AddOrUpdateScheduals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedualTeamsByDepartmentIdAndDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetSchedualTeamsByDepartmentIdAndDate" message="tns:IInfoConfig_GetSchedualTeamsByDepartmentIdAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetSchedualTeamsByDepartmentIdAndDateResponse" message="tns:IInfoConfig_GetSchedualTeamsByDepartmentIdAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthSchedualTableByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetMonthSchedualTableByDate" message="tns:IInfoConfig_GetMonthSchedualTableByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetMonthSchedualTableByDateResponse" message="tns:IInfoConfig_GetMonthSchedualTableByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsAttendance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsAttendance" message="tns:IInfoConfig_AddOrUpdateBsAttendance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsAttendanceResponse" message="tns:IInfoConfig_AddOrUpdateBsAttendance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsAttendance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsAttendance" message="tns:IInfoConfig_DeleteBsAttendance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsAttendanceResponse" message="tns:IInfoConfig_DeleteBsAttendance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsAttendances">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsAttendances" message="tns:IInfoConfig_GetAllBsAttendances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsAttendancesResponse" message="tns:IInfoConfig_GetAllBsAttendances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateAttendanceWorkRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateAttendanceWorkRecord" message="tns:IInfoConfig_AddOrUpdateAttendanceWorkRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateAttendanceWorkRecordResponse" message="tns:IInfoConfig_AddOrUpdateAttendanceWorkRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSetPassResourceByIp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAndSetPassResourceByIp" message="tns:IInfoConfig_GetAndSetPassResourceByIp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAndSetPassResourceByIpResponse" message="tns:IInfoConfig_GetAndSetPassResourceByIp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPositionStartTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddPositionStartTime" message="tns:IInfoConfig_AddPositionStartTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddPositionStartTimeResponse" message="tns:IInfoConfig_AddPositionStartTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPositionEndTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddPositionEndTime" message="tns:IInfoConfig_AddPositionEndTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddPositionEndTimeResponse" message="tns:IInfoConfig_AddPositionEndTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LaidoffAllPosition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/LaidoffAllPosition" message="tns:IInfoConfig_LaidoffAllPosition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/LaidoffAllPositionResponse" message="tns:IInfoConfig_LaidoffAllPosition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffInfoByPositionInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffInfoByPositionInfo" message="tns:IInfoConfig_GetStaffInfoByPositionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetStaffInfoByPositionInfoResponse" message="tns:IInfoConfig_GetStaffInfoByPositionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttendanceWorkRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteAttendanceWorkRecord" message="tns:IInfoConfig_DeleteAttendanceWorkRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteAttendanceWorkRecordResponse" message="tns:IInfoConfig_DeleteAttendanceWorkRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAttendanceWorkRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllAttendanceWorkRecords" message="tns:IInfoConfig_GetAllAttendanceWorkRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllAttendanceWorkRecordsResponse" message="tns:IInfoConfig_GetAllAttendanceWorkRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceRecordsByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAttendanceRecordsByInfo" message="tns:IInfoConfig_GetAttendanceRecordsByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAttendanceRecordsByInfoResponse" message="tns:IInfoConfig_GetAttendanceRecordsByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPassWorkingStaffRealtimeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetPassWorkingStaffRealtimeInfo" message="tns:IInfoConfig_GetPassWorkingStaffRealtimeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetPassWorkingStaffRealtimeInfoResponse" message="tns:IInfoConfig_GetPassWorkingStaffRealtimeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPassResourcesByPassRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetPassResourcesByPassRegion" message="tns:IInfoConfig_GetPassResourcesByPassRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetPassResourcesByPassRegionResponse" message="tns:IInfoConfig_GetPassResourcesByPassRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsSuspect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsSuspect" message="tns:IInfoConfig_AddOrUpdateBsSuspect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsSuspectResponse" message="tns:IInfoConfig_AddOrUpdateBsSuspect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsSuspects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsSuspects" message="tns:IInfoConfig_DeleteBsSuspects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsSuspectsResponse" message="tns:IInfoConfig_DeleteBsSuspects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsSuspectAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsSuspectAsPage" message="tns:IInfoConfig_GetAllBsSuspectAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsSuspectAsPageResponse" message="tns:IInfoConfig_GetAllBsSuspectAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsSuspectByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsSuspectByInfoAsPage" message="tns:IInfoConfig_GetBsSuspectByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsSuspectByInfoAsPageResponse" message="tns:IInfoConfig_GetBsSuspectByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnSusPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/ReturnSusPage" message="tns:IInfoConfig_ReturnSusPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/ReturnSusPageResponse" message="tns:IInfoConfig_ReturnSusPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSuspectExcel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllSuspectExcel" message="tns:IInfoConfig_GetAllSuspectExcel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllSuspectExcelResponse" message="tns:IInfoConfig_GetAllSuspectExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsContraband">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsContraband" message="tns:IInfoConfig_AddOrUpdateBsContraband_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsContrabandResponse" message="tns:IInfoConfig_AddOrUpdateBsContraband_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsContraband">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsContraband" message="tns:IInfoConfig_DeleteBsContraband_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsContrabandResponse" message="tns:IInfoConfig_DeleteBsContraband_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsContrabandAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsContrabandAsPage" message="tns:IInfoConfig_GetAllBsContrabandAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsContrabandAsPageResponse" message="tns:IInfoConfig_GetAllBsContrabandAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsContrabandByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsContrabandByInfoAsPage" message="tns:IInfoConfig_GetBsContrabandByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsContrabandByInfoAsPageResponse" message="tns:IInfoConfig_GetBsContrabandByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsTemporaryGoods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsTemporaryGoods" message="tns:IInfoConfig_AddOrUpdateBsTemporaryGoods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsTemporaryGoodsResponse" message="tns:IInfoConfig_AddOrUpdateBsTemporaryGoods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsTemporaryGoods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsTemporaryGoods" message="tns:IInfoConfig_DeleteBsTemporaryGoods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsTemporaryGoodsResponse" message="tns:IInfoConfig_DeleteBsTemporaryGoods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsTemporaryGoodsAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsTemporaryGoodsAsPage" message="tns:IInfoConfig_GetAllBsTemporaryGoodsAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsTemporaryGoodsAsPageResponse" message="tns:IInfoConfig_GetAllBsTemporaryGoodsAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsTemporaryGoodsByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsTemporaryGoodsByInfoAsPage" message="tns:IInfoConfig_GetBsTemporaryGoodsByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsTemporaryGoodsByInfoAsPageResponse" message="tns:IInfoConfig_GetBsTemporaryGoodsByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsTemporaryGoodsByPassenger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsTemporaryGoodsByPassenger" message="tns:IInfoConfig_GetBsTemporaryGoodsByPassenger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsTemporaryGoodsByPassengerResponse" message="tns:IInfoConfig_GetBsTemporaryGoodsByPassenger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcCivilization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcCivilization" message="tns:IInfoConfig_AddOrUpdateRcCivilization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcCivilizationResponse" message="tns:IInfoConfig_AddOrUpdateRcCivilization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcCivilization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcCivilization" message="tns:IInfoConfig_DeleteRcCivilization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcCivilizationResponse" message="tns:IInfoConfig_DeleteRcCivilization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcCivilizationByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcCivilizationByInfo" message="tns:IInfoConfig_GetRcCivilizationByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcCivilizationByInfoResponse" message="tns:IInfoConfig_GetRcCivilizationByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcCivilizationAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcCivilizationAsPage" message="tns:IInfoConfig_GetAllRcCivilizationAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcCivilizationAsPageResponse" message="tns:IInfoConfig_GetAllRcCivilizationAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcCivilizationByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcCivilizationByInfoAsPage" message="tns:IInfoConfig_GetRcCivilizationByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcCivilizationByInfoAsPageResponse" message="tns:IInfoConfig_GetRcCivilizationByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcEvent" message="tns:IInfoConfig_AddOrUpdateRcEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcEventResponse" message="tns:IInfoConfig_AddOrUpdateRcEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcEvent" message="tns:IInfoConfig_DeleteRcEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcEventResponse" message="tns:IInfoConfig_DeleteRcEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcEventByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcEventByInfo" message="tns:IInfoConfig_GetRcEventByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcEventByInfoResponse" message="tns:IInfoConfig_GetRcEventByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcEventAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcEventAsPage" message="tns:IInfoConfig_GetAllRcEventAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcEventAsPageResponse" message="tns:IInfoConfig_GetAllRcEventAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcEventByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcEventByInfoAsPage" message="tns:IInfoConfig_GetRcEventByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcEventByInfoAsPageResponse" message="tns:IInfoConfig_GetRcEventByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcGlean">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcGlean" message="tns:IInfoConfig_AddOrUpdateRcGlean_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcGleanResponse" message="tns:IInfoConfig_AddOrUpdateRcGlean_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcGleanByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcGleanByInfo" message="tns:IInfoConfig_GetRcGleanByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcGleanByInfoResponse" message="tns:IInfoConfig_GetRcGleanByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcGlean">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcGlean" message="tns:IInfoConfig_DeleteRcGlean_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcGleanResponse" message="tns:IInfoConfig_DeleteRcGlean_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcGleanAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcGleanAsPage" message="tns:IInfoConfig_GetAllRcGleanAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcGleanAsPageResponse" message="tns:IInfoConfig_GetAllRcGleanAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcGleanByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcGleanByInfoAsPage" message="tns:IInfoConfig_GetRcGleanByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcGleanByInfoAsPageResponse" message="tns:IInfoConfig_GetRcGleanByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcHand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcHand" message="tns:IInfoConfig_AddOrUpdateRcHand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcHandResponse" message="tns:IInfoConfig_AddOrUpdateRcHand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcHandByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcHandByInfo" message="tns:IInfoConfig_GetRcHandByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcHandByInfoResponse" message="tns:IInfoConfig_GetRcHandByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcHand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcHand" message="tns:IInfoConfig_DeleteRcHand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcHandResponse" message="tns:IInfoConfig_DeleteRcHand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcHandAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcHandAsPage" message="tns:IInfoConfig_GetAllRcHandAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcHandAsPageResponse" message="tns:IInfoConfig_GetAllRcHandAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcHandByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcHandByInfoAsPage" message="tns:IInfoConfig_GetRcHandByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcHandByInfoAsPageResponse" message="tns:IInfoConfig_GetRcHandByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcRewordpunish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcRewordpunish" message="tns:IInfoConfig_AddOrUpdateRcRewordpunish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRcRewordpunishResponse" message="tns:IInfoConfig_AddOrUpdateRcRewordpunish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRewordpunishDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRewordpunishDepartment" message="tns:IInfoConfig_AddOrUpdateRewordpunishDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateRewordpunishDepartmentResponse" message="tns:IInfoConfig_AddOrUpdateRewordpunishDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcRewordpunishByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcRewordpunishByInfo" message="tns:IInfoConfig_GetRcRewordpunishByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcRewordpunishByInfoResponse" message="tns:IInfoConfig_GetRcRewordpunishByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcRewordpunish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcRewordpunish" message="tns:IInfoConfig_DeleteRcRewordpunish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteRcRewordpunishResponse" message="tns:IInfoConfig_DeleteRcRewordpunish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcRewordpunishAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcRewordpunishAsPage" message="tns:IInfoConfig_GetAllRcRewordpunishAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllRcRewordpunishAsPageResponse" message="tns:IInfoConfig_GetAllRcRewordpunishAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRcRewordpunishByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetRcRewordpunishByInfoAsPage" message="tns:IInfoConfig_GetRcRewordpunishByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetRcRewordpunishByInfoAsPageResponse" message="tns:IInfoConfig_GetRcRewordpunishByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLoginLogAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllLoginLogAsPage" message="tns:IInfoConfig_GetAllLoginLogAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllLoginLogAsPageResponse" message="tns:IInfoConfig_GetAllLoginLogAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginLogsByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetLoginLogsByInfo" message="tns:IInfoConfig_GetLoginLogsByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetLoginLogsByInfoResponse" message="tns:IInfoConfig_GetLoginLogsByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginLogsByInfoAndTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetLoginLogsByInfoAndTime" message="tns:IInfoConfig_GetLoginLogsByInfoAndTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetLoginLogsByInfoAndTimeResponse" message="tns:IInfoConfig_GetLoginLogsByInfoAndTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsCamera">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsCamera" message="tns:IInfoConfig_AddOrUpdateBsCamera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsCameraResponse" message="tns:IInfoConfig_AddOrUpdateBsCamera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsCameraByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsCameraByInfo" message="tns:IInfoConfig_GetBsCameraByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsCameraByInfoResponse" message="tns:IInfoConfig_GetBsCameraByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsCameraByResourceId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsCameraByResourceId" message="tns:IInfoConfig_GetBsCameraByResourceId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsCameraByResourceIdResponse" message="tns:IInfoConfig_GetBsCameraByResourceId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetResourceCameraRelations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/SetResourceCameraRelations" message="tns:IInfoConfig_SetResourceCameraRelations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/SetResourceCameraRelationsResponse" message="tns:IInfoConfig_SetResourceCameraRelations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCamerasAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllCamerasAsPage" message="tns:IInfoConfig_GetAllCamerasAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllCamerasAsPageResponse" message="tns:IInfoConfig_GetAllCamerasAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsCameraByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsCameraByInfoAsPage" message="tns:IInfoConfig_GetBsCameraByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsCameraByInfoAsPageResponse" message="tns:IInfoConfig_GetBsCameraByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsCamera">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsCamera" message="tns:IInfoConfig_GetAllBsCamera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsCameraResponse" message="tns:IInfoConfig_GetAllBsCamera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletBsCamera">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeletBsCamera" message="tns:IInfoConfig_DeletBsCamera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeletBsCameraResponse" message="tns:IInfoConfig_DeletBsCamera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVIP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllVIP" message="tns:IInfoConfig_GetAllVIP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllVIPResponse" message="tns:IInfoConfig_GetAllVIP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVipPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetVipPage" message="tns:IInfoConfig_GetVipPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetVipPageResponse" message="tns:IInfoConfig_GetVipPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VIPAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/VIPAdd" message="tns:IInfoConfig_VIPAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/VIPAddResponse" message="tns:IInfoConfig_VIPAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VIPUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/VIPUpdate" message="tns:IInfoConfig_VIPUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/VIPUpdateResponse" message="tns:IInfoConfig_VIPUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VIPDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/VIPDelete" message="tns:IInfoConfig_VIPDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/VIPDeleteResponse" message="tns:IInfoConfig_VIPDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBlacklistsAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBlacklistsAsPage" message="tns:IInfoConfig_GetAllBlacklistsAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBlacklistsAsPageResponse" message="tns:IInfoConfig_GetAllBlacklistsAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsBlacklist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsBlacklist" message="tns:IInfoConfig_AddOrUpdateBsBlacklist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsBlacklistResponse" message="tns:IInfoConfig_AddOrUpdateBsBlacklist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsBlacklistByInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsBlacklistByInfo" message="tns:IInfoConfig_GetBsBlacklistByInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsBlacklistByInfoResponse" message="tns:IInfoConfig_GetBsBlacklistByInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsBlacklist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsBlacklist" message="tns:IInfoConfig_GetBsBlacklist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsBlacklistResponse" message="tns:IInfoConfig_GetBsBlacklist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HandBsBlacklist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/HandBsBlacklist" message="tns:IInfoConfig_HandBsBlacklist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/HandBsBlacklistResponse" message="tns:IInfoConfig_HandBsBlacklist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHandBsBlacklist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/UpdateHandBsBlacklist" message="tns:IInfoConfig_UpdateHandBsBlacklist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/UpdateHandBsBlacklistResponse" message="tns:IInfoConfig_UpdateHandBsBlacklist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsBlacklistByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsBlacklistByInfoAsPage" message="tns:IInfoConfig_GetBsBlacklistByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsBlacklistByInfoAsPageResponse" message="tns:IInfoConfig_GetBsBlacklistByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletBsBlacklist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeletBsBlacklist" message="tns:IInfoConfig_DeletBsBlacklist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeletBsBlacklistResponse" message="tns:IInfoConfig_DeletBsBlacklist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsSuspectFlight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsSuspectFlight" message="tns:IInfoConfig_AddOrUpdateBsSuspectFlight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/AddOrUpdateBsSuspectFlightResponse" message="tns:IInfoConfig_AddOrUpdateBsSuspectFlight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsSuspectFlights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsSuspectFlights" message="tns:IInfoConfig_DeleteBsSuspectFlights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/DeleteBsSuspectFlightsResponse" message="tns:IInfoConfig_DeleteBsSuspectFlights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsSuspectFlightAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsSuspectFlightAsPage" message="tns:IInfoConfig_GetAllBsSuspectFlightAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetAllBsSuspectFlightAsPageResponse" message="tns:IInfoConfig_GetAllBsSuspectFlightAsPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBsSuspectFlightByInfoAsPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInfoConfig/GetBsSuspectFlightByInfoAsPage" message="tns:IInfoConfig_GetBsSuspectFlightByInfoAsPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInfoConfig/GetBsSuspectFlightByInfoAsPageResponse" message="tns:IInfoConfig_GetBsSuspectFlightByInfoAsPage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IInfoConfig" type="tns:IInfoConfig">
+    <wsp:PolicyReference URI="#WSHttpBinding_IInfoConfig_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyUserPassword">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/VerifyUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPassword">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/UpdateUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsHasSubsystemAuth">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/IsHasSubsystemAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Heartbeat">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/Heartbeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFtpUpload">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/GetFtpUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFtpServerInfo">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/GetFtpServerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigure">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/GetConfigure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceRelationIp">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/GetDeviceRelationIp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddScmisMessage">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/AddScmisMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmScmisMessage">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/ConfirmScmisMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDictionaryByType">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/QueryDictionaryByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperationLogAdd">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/OperationLogAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOperationLogAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/GetAllOperationLogAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationLogsByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/GetOperationLogsByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationLogsByInfoAndTime">
+      <soap12:operation soapAction="http://tempuri.org/IBaseService/GetOperationLogsByInfoAndTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffs">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllStaffs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffsAsPageone">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllStaffsAsPageone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsStaffByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsStaffByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsStaffByInfoAsPageone">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsStaffByInfoAsPageone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsStaff">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteBsStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BsStaffIsOnline">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/BsStaffIsOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStaffIsOnline">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/UpdateStaffIsOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateStaff">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateTeam">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateTeamStaffs">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateTeamStaffs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartments">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeams">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteTeams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartmentsWithLeader">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllDepartmentsWithLeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamsByDepartmentId">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetTeamsByDepartmentId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsByTeamId">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetStaffsByTeamId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTeams">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllTeams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsByTeam">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetStaffsByTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaffsInRelated">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllStaffsInRelated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsWithNoTeam">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetStaffsWithNoTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsWithTeam">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetStaffsWithTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsInRelated">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetStaffsInRelated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffsByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetStaffsByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeamStaffs">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddTeamStaffs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStaffFromTeam">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteStaffFromTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTeamLeader">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/SetTeamLeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDepartmentLeader">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/SetDepartmentLeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTendaySchedualTableByDate">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetTendaySchedualTableByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateScheduals">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateScheduals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedualTeamsByDepartmentIdAndDate">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetSchedualTeamsByDepartmentIdAndDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthSchedualTableByDate">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetMonthSchedualTableByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsAttendance">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateBsAttendance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsAttendance">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteBsAttendance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsAttendances">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllBsAttendances" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateAttendanceWorkRecord">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateAttendanceWorkRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSetPassResourceByIp">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAndSetPassResourceByIp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPositionStartTime">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddPositionStartTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPositionEndTime">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddPositionEndTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LaidoffAllPosition">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/LaidoffAllPosition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffInfoByPositionInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetStaffInfoByPositionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttendanceWorkRecord">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteAttendanceWorkRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAttendanceWorkRecords">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllAttendanceWorkRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceRecordsByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAttendanceRecordsByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPassWorkingStaffRealtimeInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetPassWorkingStaffRealtimeInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPassResourcesByPassRegion">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetPassResourcesByPassRegion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsSuspect">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateBsSuspect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsSuspects">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteBsSuspects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsSuspectAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllBsSuspectAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsSuspectByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsSuspectByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnSusPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/ReturnSusPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSuspectExcel">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllSuspectExcel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsContraband">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateBsContraband" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsContraband">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteBsContraband" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsContrabandAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllBsContrabandAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsContrabandByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsContrabandByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsTemporaryGoods">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateBsTemporaryGoods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsTemporaryGoods">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteBsTemporaryGoods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsTemporaryGoodsAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllBsTemporaryGoodsAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsTemporaryGoodsByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsTemporaryGoodsByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsTemporaryGoodsByPassenger">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsTemporaryGoodsByPassenger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcCivilization">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateRcCivilization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcCivilization">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteRcCivilization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcCivilizationByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcCivilizationByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcCivilizationAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllRcCivilizationAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcCivilizationByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcCivilizationByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcEvent">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateRcEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcEvent">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteRcEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcEventByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcEventByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcEventAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllRcEventAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcEventByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcEventByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcGlean">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateRcGlean" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcGleanByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcGleanByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcGlean">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteRcGlean" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcGleanAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllRcGleanAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcGleanByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcGleanByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcHand">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateRcHand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcHandByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcHandByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcHand">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteRcHand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcHandAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllRcHandAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcHandByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcHandByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRcRewordpunish">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateRcRewordpunish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateRewordpunishDepartment">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateRewordpunishDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcRewordpunishByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcRewordpunishByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRcRewordpunish">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteRcRewordpunish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRcRewordpunishAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllRcRewordpunishAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRcRewordpunishByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetRcRewordpunishByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLoginLogAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllLoginLogAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginLogsByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetLoginLogsByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginLogsByInfoAndTime">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetLoginLogsByInfoAndTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsCamera">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateBsCamera" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsCameraByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsCameraByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsCameraByResourceId">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsCameraByResourceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetResourceCameraRelations">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/SetResourceCameraRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCamerasAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllCamerasAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsCameraByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsCameraByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsCamera">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllBsCamera" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletBsCamera">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeletBsCamera" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVIP">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllVIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVipPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetVipPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIPAdd">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/VIPAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIPUpdate">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/VIPUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VIPDelete">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/VIPDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBlacklistsAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllBlacklistsAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsBlacklist">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateBsBlacklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsBlacklistByInfo">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsBlacklistByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsBlacklist">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsBlacklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandBsBlacklist">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/HandBsBlacklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHandBsBlacklist">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/UpdateHandBsBlacklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsBlacklistByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsBlacklistByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletBsBlacklist">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeletBsBlacklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateBsSuspectFlight">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/AddOrUpdateBsSuspectFlight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBsSuspectFlights">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/DeleteBsSuspectFlights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBsSuspectFlightAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetAllBsSuspectFlightAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBsSuspectFlightByInfoAsPage">
+      <soap12:operation soapAction="http://tempuri.org/IInfoConfig/GetBsSuspectFlightByInfoAsPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InfoConfigService">
+    <wsdl:port name="WSHttpBinding_IInfoConfig" binding="tns:WSHttpBinding_IInfoConfig">
+      <soap12:address location="http://192.168.163.14/ScmisService/InfoConfigService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://192.168.163.14/ScmisService/InfoConfigService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
