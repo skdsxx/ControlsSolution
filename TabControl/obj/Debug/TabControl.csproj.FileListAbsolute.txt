@@ -44,3 +44,4 @@ C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\App.baml
 C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\Pages\MainPage.baml
 C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\TabControl3.g.cs
 C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\TabControl3.baml
+C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\TabControl.csprojResolveAssemblyReference.cache

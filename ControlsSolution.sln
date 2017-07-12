@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabControl", "TabControl\Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanvasDragMove", "CanvasDragMove\CanvasDragMove.csproj", "{0F990A2D-9463-4ACA-9F3E-FB7D8356EF9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBoxMultipleControl", "ComboBoxMultipleControl\ComboBoxMultipleControl.csproj", "{7535D7BB-7857-4347-8EDE-D9042C30DA9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckComBox", "CheckComBox\CheckComBox.csproj", "{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0F990A2D-9463-4ACA-9F3E-FB7D8356EF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F990A2D-9463-4ACA-9F3E-FB7D8356EF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F990A2D-9463-4ACA-9F3E-FB7D8356EF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7535D7BB-7857-4347-8EDE-D9042C30DA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7535D7BB-7857-4347-8EDE-D9042C30DA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7535D7BB-7857-4347-8EDE-D9042C30DA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7535D7BB-7857-4347-8EDE-D9042C30DA9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
