@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\贤\Desktop\ControlsSolution\TabControl\obj\Debug\
+D:\GitHubProjects\ControlsSolution\TabControl\obj\Debug\
 TabControl
 none
 false
 DEBUG;TRACE
-C:\Users\贤\Desktop\ControlsSolution\TabControl\App.xaml
-10-1193322917
+D:\GitHubProjects\ControlsSolution\TabControl\App.xaml
+13739462995
 1213751408
-25-1485217644
-15-1604903901
-MainWindow.xaml;Pages\MainPage.xaml;Pages\Page1.xaml;Pages\Page2.xaml;Pages\Page3.xaml;Pages\Page4.xaml;Pages\Page5.xaml;TabControl1.xaml;TabControl2.xaml;TabControl3.xaml;
+30-168606710
+17208051277
+MainWindow.xaml;Pages\MainPage.xaml;Pages\Page1.xaml;Pages\Page2.xaml;Pages\Page3.xaml;Pages\Page4.xaml;Pages\Page5.xaml;TabControl1.xaml;TabControl2.xaml;TabControl3.xaml;TabControl4.xaml;TabControl5.xaml;UserControls\TabItemWithClose.xaml;
 
 False
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\贤\Desktop\ControlsSolution\ComboBoxMultipleControl\obj\Debug\
+D:\GitHubProjects\ControlsSolution\ComboBoxMultipleControl\obj\Debug\
 ComboBoxMultipleControl
 none
 false
 DEBUG;TRACE
-C:\Users\贤\Desktop\ControlsSolution\ComboBoxMultipleControl\App.xaml
+D:\GitHubProjects\ControlsSolution\ComboBoxMultipleControl\App.xaml
 3-2115512090
 
-11-567005727
+15-809176318
 13738642453
 MainWindow.xaml;UserControls\CheckComboBox.xaml;UserControls\ComboBoxEx.xaml;
 
-False
+True
 

@@ -42,5 +42,17 @@ namespace TabControl
             new TabControl3().Show();
             Application.Current.MainWindow = this;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new TabControl4().Show();
+            Application.Current.MainWindow = this;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            new TabControl5().Show();
+            Application.Current.MainWindow = this;
+        }
     }
 }
