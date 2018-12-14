@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabControl", "TabControl\TabControl.csproj", "{52CE18E7-4647-4BDE-9ADD-6EB2F4807DB5}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBoxMultipleControl", "ComboBoxMultipleControl\ComboBoxMultipleControl.csproj", "{7535D7BB-7857-4347-8EDE-D9042C30DA9B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckComBox", "CheckComBox\CheckComBox.csproj", "{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowControlStyle", "WindowControlStyle\WindowControlStyle.csproj", "{9C6C833E-33A4-4B86-8383-D772CA6EC00F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B05F3C19-1541-4FA9-ACE4-DF7A804B7C66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C6C833E-33A4-4B86-8383-D772CA6EC00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6C833E-33A4-4B86-8383-D772CA6EC00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6C833E-33A4-4B86-8383-D772CA6EC00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6C833E-33A4-4B86-8383-D772CA6EC00F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFF29F2B-41C4-4C75-9DB7-246A84045E5B}
 	EndGlobalSection
 EndGlobal

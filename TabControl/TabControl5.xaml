@@ -314,7 +314,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button Content="加Item" Width="60" Height="30"/>
-        <ctrl:TabControlEx Grid.Row="1" Grid.Column="1" 
+        <ctrl:TabControlEx Grid.Row="1" 
                                Margin="10,1,10,3" 
                                ItemsSource="{Binding TabItemWithCloses}"/>
     </Grid>

@@ -1,0 +1,14 @@
+﻿<skins:WindowBase
+        xmlns:skins="clr-namespace:WindowControlStyle.Skins" 
+        x:Class="WindowControlStyle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowControlStyle"
+        mc:Ignorable="d"
+        Title="测试窗体" Height="450" Width="800">
+    <Grid>
+        
+    </Grid>
+</skins:WindowBase>

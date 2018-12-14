@@ -19,7 +19,7 @@
                 Click="ButtonDy_OnClick"></Button>
         <Button Grid.Row="2" Content="动态TabControl3" Width="150" Height="30" 
                 Click="ButtonDy3_OnClick"></Button>
-        <Button Grid.Row="3" Content="自定义Tab加Close静态" Width="150" Height="30" 
+        <Button Grid.Row="3" Content="类似Google浏览器的Tab" Width="150" Height="30" 
                 Click="Button_Click"></Button>
         <Button Grid.Row="4" Content="自定义Tab" Width="150" Height="30" 
                 Click="Button_Click_1"></Button>
