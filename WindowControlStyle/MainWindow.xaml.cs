@@ -24,5 +24,18 @@ namespace WindowControlStyle
         {
             InitializeComponent();
         }
+
+
+        private void Xml_BtnClick(object sender, RoutedEventArgs e)
+        {
+            var win = new MutiLanguagesWindow();
+            win.ShowDialog();
+        }
+
+        private void Xaml_BtnClick(object sender, RoutedEventArgs e)
+        {
+            var win = new MutiLanguageWindow2();
+            win.ShowDialog();
+        }
     }
 }

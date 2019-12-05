@@ -1,0 +1,44 @@
+﻿<Window x:Class="WindowControlStyle.MutiLanguagesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowControlStyle"
+        mc:Ignorable="d"
+        Title="{Binding Source={StaticResource Lang}, XPath='MainWindowTitle'}" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Source={StaticResource Lang}, XPath='Name'}">
+            <!--<TextBlock.Text>
+                <Binding Source="{StaticResource Lang}" XPath="resource[@name='Name']" />这种写法按照xml文件中注释的方式写才行
+            </TextBlock.Text>-->
+        </TextBlock>
+        <Button Grid.Row="0" Grid.Column="2"
+                Width="200" Height="28"
+                Content="Switch"
+                Click="SwitchButton_Click"/>
+        <DataGrid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Width="300">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn  Width="50" Header="{Binding Source={StaticResource Lang}, XPath='dg1'}" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Name="chkStart"  IsChecked="{Binding IsStart,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=DataContext.IsEnabled, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGrid}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Width="3*" Header="{Binding Source={StaticResource Lang}, XPath='dg2'}" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  />
+                <DataGridTextColumn Width="3*"  Header="{Binding Source={StaticResource Lang}, XPath='dg3'}" Binding="{Binding Path=Website, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors =True}"  IsReadOnly="True"   />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

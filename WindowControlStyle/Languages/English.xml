@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <resources>
+    <!--<resource name="MainWindowTitle">Main Window</resource>
+    <resource name="Name">Name</resource>-->
+    <MainWindowTitle>Main Window</MainWindowTitle>
+    <Name>Name</Name>
+    <dg1>DgName</dg1>
+    <dg2>Weight</dg2>
+    <dg3>Number</dg3>
+  </resources>
+</language>

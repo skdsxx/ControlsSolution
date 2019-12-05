@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<language>
+  <resources>
+    <!--<resource name="MainWindowTitle">主窗体</resource>
+    <resource name="Name">名称</resource>-->
+    <MainWindowTitle>主窗体</MainWindowTitle>
+    <Name>名称</Name>
+
+    <dg1>名称</dg1>
+    <dg2>重量</dg2>
+    <dg3>数量</dg3>
+  </resources>
+</language>
+

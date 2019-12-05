@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="LanguageCode">en</sys:String>
+    <sys:String x:Key="LanguageName">英语</sys:String>
+    <sys:String x:Key="LanguageDisplayName">English</sys:String>
+    <sys:String x:Key="LanguageEnabled">true</sys:String>
+
+
+    <sys:String x:Key="MainWindowTitle">TestWindowTitle</sys:String>
+
+    <sys:String x:Key="LanguageLanguage">Language：</sys:String>
+
+    <sys:String x:Key="LanguageA">FieldA：</sys:String>
+    <sys:String x:Key="LanguageB">FieldB：</sys:String>
+    <sys:String x:Key="LanguageC">FieldC：</sys:String>
+</ResourceDictionary>
