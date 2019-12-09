@@ -27,5 +27,10 @@
                 Width="200" Height="28"
                 Content="多语言XAML资源形式"
                 Click="Xaml_BtnClick"/>
+
+        <Button Grid.Row="2" Grid.Column="1"
+                Width="200" Height="28"
+                Content="模拟广播声卡适配"
+                Click="Soundcard_BtnClick"/>
     </Grid>
 </skins:WindowBase>

@@ -37,5 +37,11 @@ namespace WindowControlStyle
             var win = new MutiLanguageWindow2();
             win.ShowDialog();
         }
+
+        private void Soundcard_BtnClick(object sender, RoutedEventArgs e)
+        {
+            var win = new SoundcardWindow();
+            win.ShowDialog();
+        }
     }
 }
