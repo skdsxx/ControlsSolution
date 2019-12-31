@@ -65,5 +65,10 @@ namespace WindowControlStyle
 
             return ConfigurationManager.AppSettings[key];
         }
+
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show("系统异常" + e.Exception);
+        }
     }
 }
