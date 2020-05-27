@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowControlStyle", "Windo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricRelay", "ElectricRelay\ElectricRelay.csproj", "{8276B7FF-7B45-4B1E-AC33-3A52AB1D827D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadXmlWindow", "ReadXmlWindow\ReadXmlWindow.csproj", "{060E509A-FB55-4F48-A3F5-F030125EBFB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{8276B7FF-7B45-4B1E-AC33-3A52AB1D827D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8276B7FF-7B45-4B1E-AC33-3A52AB1D827D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8276B7FF-7B45-4B1E-AC33-3A52AB1D827D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{060E509A-FB55-4F48-A3F5-F030125EBFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060E509A-FB55-4F48-A3F5-F030125EBFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060E509A-FB55-4F48-A3F5-F030125EBFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060E509A-FB55-4F48-A3F5-F030125EBFB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

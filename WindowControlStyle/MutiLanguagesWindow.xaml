@@ -27,17 +27,19 @@
                 Width="200" Height="28"
                 Content="Switch"
                 Click="SwitchButton_Click"/>
-        <DataGrid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Width="300">
+        <DataGrid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="400"
+                  CanUserAddRows="False" AutoGenerateColumns="False"
+                  ItemsSource="{Binding Partitions}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn  Width="50" Header="{Binding Source={StaticResource Lang}, XPath='dg1'}" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox Name="chkStart"  IsChecked="{Binding IsStart,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=DataContext.IsEnabled, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGrid}}"/>
+                            <Button Content="{Binding Source={StaticResource Lang}, XPath='dg1'}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Width="3*" Header="{Binding Source={StaticResource Lang}, XPath='dg2'}" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"  />
-                <DataGridTextColumn Width="3*"  Header="{Binding Source={StaticResource Lang}, XPath='dg3'}" Binding="{Binding Path=Website, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors =True}"  IsReadOnly="True"   />
+                <DataGridTextColumn Width="3*"  Header="{Binding Source={StaticResource Lang}, XPath='dg3'}" Binding="{Binding Path=Code, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors =True}"  IsReadOnly="True"   />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

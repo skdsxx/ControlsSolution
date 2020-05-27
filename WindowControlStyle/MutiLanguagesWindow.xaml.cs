@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WindowControlStyle.Models;
 
 namespace WindowControlStyle
 {
@@ -20,9 +22,15 @@ namespace WindowControlStyle
     public partial class MutiLanguagesWindow : Window
     {
         private string _currentLang = string.Empty;
+
+        public ObservableCollection<PartitionModel> Partitions { get; set; }
         public MutiLanguagesWindow()
         {
             InitializeComponent();
+
+            DataContext = this;
+            Partitions = new ObservableCollection<PartitionModel>();
+            Partitions.Add(new PartitionModel { Code = "1", Name = "分区1" });
 
             _currentLang = "Zh";
         }
