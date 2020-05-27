@@ -54,5 +54,11 @@ namespace TabControl
             new TabControl5().Show();
             Application.Current.MainWindow = this;
         }
+
+        private void BtnLast_Click(object sender, RoutedEventArgs e)
+        {
+            new TabControlLast().Show();
+            Application.Current.MainWindow = this;
+        }
     }
 }

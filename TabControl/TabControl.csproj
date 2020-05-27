@@ -121,7 +121,13 @@
     <Compile Include="TabControl5.xaml.cs">
       <DependentUpon>TabControl5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TabControlLast.xaml.cs">
+      <DependentUpon>TabControlLast.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MyTabControl.cs" />
+    <Compile Include="UserControls\TabControlBox.xaml.cs">
+      <DependentUpon>TabControlBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TabControlEx.cs" />
     <Compile Include="UserControls\TabItemEx.cs" />
     <Compile Include="UserControls\TabItemWithClose.xaml.cs">
@@ -182,6 +188,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TabControl5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabControlLast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TabControlBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

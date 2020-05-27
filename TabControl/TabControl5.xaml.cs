@@ -40,19 +40,19 @@ namespace TabControl
         private void InitialTreeMenu()
         {
             TabItemWithCloses = new ObservableCollection<TabItemEx>();
-            TabItemWithCloses.Add(new TabItemEx { Header = "1控件测试1", Tag = "1", Content = new Page1(),CanClosed=false});
-            TabItemWithCloses.Add(new TabItemEx { Header = "2控件测试2", Tag = "2", Content = new Page2(),CanClosed=false});
-            TabItemWithCloses.Add(new TabItemEx { Header = "3控件测试3", Tag = "3", Content = new Page3(),CanClosed=true});
-            TabItemWithCloses.Add(new TabItemEx { Header = "4控件测试4", Tag = "4", Content = new Page4(),CanClosed=true});
-            TabItemWithCloses.Add(new TabItemEx { Header = "5控件测试5", Tag = "5", Content = new Page5(),CanClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "1控件测试1", Tag = "1", Content = new Page1(),IsClosed=false});
+            TabItemWithCloses.Add(new TabItemEx { Header = "2控件测试2", Tag = "2", Content = new Page2(),IsClosed=false});
+            TabItemWithCloses.Add(new TabItemEx { Header = "3控件测试3", Tag = "3", Content = new Page3(),IsClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "4控件测试4", Tag = "4", Content = new Page4(),IsClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "5控件测试5", Tag = "5", Content = new Page5(),IsClosed=true});
             // TabItemWithCloses.Add(node);
 
-            TabItemWithCloses.Add(new TabItemEx { Header = "6控件测试6", Tag = "6", Content = new Page1(),CanClosed=true});
-            TabItemWithCloses.Add(new TabItemEx { Header = "7控件测试7", Tag = "7", Content = new Page2(),CanClosed=true});
-            TabItemWithCloses.Add(new TabItemEx { Header = "8控件测试8", Tag = "8", Content = new Page3(),CanClosed=true});
-            TabItemWithCloses.Add(new TabItemEx { Header = "9控件测试9", Tag = "9", Content = new Page4(),CanClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "6控件测试6", Tag = "6", Content = new Page1(),IsClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "7控件测试7", Tag = "7", Content = new Page2(),IsClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "8控件测试8", Tag = "8", Content = new Page3(),IsClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "9控件测试9", Tag = "9", Content = new Page4(),IsClosed=true});
 
-            TabItemWithCloses.Add(new TabItemEx { Header = "0控件测试10", Tag = "10", Content = new Page5(),CanClosed=true});
+            TabItemWithCloses.Add(new TabItemEx { Header = "0控件测试10", Tag = "10", Content = new Page5(),IsClosed=true});
 
 
             var tabNew = new TabItemEx { Header = "主页", Content = new MainPage() };

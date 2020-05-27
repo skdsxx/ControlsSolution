@@ -12,6 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button Content="静态TabControl" Width="150" Height="30" 
                 Click="ButtonStatic_OnClick"></Button>
@@ -23,5 +24,7 @@
                 Click="Button_Click"></Button>
         <Button Grid.Row="4" Content="自定义Tab" Width="150" Height="30" 
                 Click="Button_Click_1"></Button>
+        <Button Grid.Row="4" Content="最终可用的Tab" Width="150" Height="30" 
+                Click="BtnLast_Click"></Button>
     </Grid>
 </Window>

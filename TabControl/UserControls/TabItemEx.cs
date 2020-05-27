@@ -43,17 +43,17 @@ namespace TabControl.UserControls
         /// <summary>
         /// 
         /// </summary>
-        public bool CanClosed
+        public bool IsClosed
         {
-            get => (bool)GetValue(CanClosedProperty);
-            set => SetValue(CanClosedProperty, value);
+            get => (bool)GetValue(IsClosedProperty);
+            set => SetValue(IsClosedProperty, value);
         }
 
         /// <summary>
         /// 是否可关闭
         /// </summary>
-        public static readonly DependencyProperty CanClosedProperty =
-            DependencyProperty.Register("CanClosed", typeof(bool), typeof(TabItemEx), new PropertyMetadata(true));
+        public static readonly DependencyProperty IsClosedProperty =
+            DependencyProperty.Register("IsClosed", typeof(bool), typeof(TabItemEx), new PropertyMetadata(true));
 
         /// <summary>
         /// 关闭时触发命令
@@ -83,7 +83,7 @@ namespace TabControl.UserControls
             {
                 btnClose.Click += (sender, e) =>
                 {
-                    if (CanClosed)
+                    if (IsClosed)
                     {
                         Close?.Execute(this);
                     }
